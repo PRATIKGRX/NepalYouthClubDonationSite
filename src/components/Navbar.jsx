@@ -18,6 +18,7 @@ const Navbar = () => {
                 <Link to="/about" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">About</Link>
                 {/* <Link to="/donate" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Donation</Link> */}
                 <Link to="/gallery" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Gallery</Link>
+                <Link to="/documentation" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Documentation</Link>
                 <Link to="/contact" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Contact</Link>
             </div>
 
@@ -43,6 +44,7 @@ const Navbar = () => {
                 <Link to="/about" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">About</Link>
                 {/* <Link to="/donate" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Donation</Link> */}
                 <Link to="/gallery" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Gallery</Link>
+                <Link to="/documentation" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Documentation</Link>
                 <Link to="/contact" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Contact</Link>
                 </div>
             )}

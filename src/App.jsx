@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Donate from "./pages/Donate";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Documentation from "./pages/Documentation";
 
 function App(){ 
   return (
@@ -14,6 +15,7 @@ function App(){
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/documentation" element={<Documentation />} />
           <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </Router>
