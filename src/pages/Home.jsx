@@ -1,3 +1,6 @@
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { MdVerifiedUser } from "react-icons/md";
+import { MdHandshake } from "react-icons/md";
 import Navbar from "../components/Navbar";
 const Home = () => {
   return (
@@ -20,23 +23,23 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <main className="px-10">
+      <main className="px-12">
         <div className="grid grid-cols-3 py-15 w-full">
           <div className="flex justify-center items-center">
-            <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
-              <div>svg</div>
+            <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex gap-2 flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
+              <div className="text-[120px] text-[#DC241F]"><RiMoneyDollarCircleFill/></div>
               <p>100% Direct Transfer</p>
             </div>
           </div>
           <div className="flex justify-center items-center">
-          <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
-            <div>svg</div>
+          <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex gap-2 flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
+            <div className="text-[120px] text-[#DC241F]"><MdVerifiedUser/></div>
             <p>Verified cases</p>
           </div>
           </div>
           <div className="flex justify-center items-center">
-         <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
-            <div>svg</div>
+         <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex gap-2 flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
+            <div className="text-[120px] text-[#DC241F]"><MdHandshake /></div>
             <p>Non-Profit initiative</p>
           </div>
             </div>
