@@ -1,55 +1,65 @@
-
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const navigate = useNavigate();
-    return (
-        <nav className="bg-[#ff2c2c] shadow-md px-6 py-4 flex justify-between items-center relative z-50">
-            {/* Logo */}
-            <div className="font-bold text-2xl text-white">
-                <Link to="/">Nepal Youth Club</Link>
-            </div>
+  const [isFixed, setIsFixed] = useState(false);
 
-            {/* Desktop Links */}
-            <div className="hidden md:flex space-x-6 font-medium text-white">
-                <Link to="/" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Home</Link>
-                <Link to="/about" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">About</Link>
-                {/* <Link to="/donate" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Donation</Link> */}
-                <Link to="/gallery" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Gallery</Link>
-                <Link to="/documentation" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Documentation</Link>
-                <Link to="/contact" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Contact</Link>
-            </div>
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const trigger = window.innerHeight * 0.5; // 50% of the viewport height
 
+      // Only update state when crossing the threshold
+      if (scrollY > trigger && !isFixed) {
+        setIsFixed(true);
+      } else if (scrollY <= trigger && isFixed) {
+        setIsFixed(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFixed]);
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
-                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-700 focus:outline-none">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {mobileMenuOpen ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        ) : (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        )}
-                    </svg>
-                </button>
-            </div>
+  const NavbarContent = () => (
+    <div className="h-[65px] flex justify-between w-full items-center">
+      <div>
+        <img
+          src="src/assets/logo.png"
+          alt="Logo"
+          className="h-[65px] w-[65px]"
+        />
+      </div>
+      <ul className="flex gap-4 items-center text-[20px]">
+        <li className="text-[#DC241F]">Home</li>
+        <li>Gallery</li>
+        <li>About</li>
+        <li>Documentation</li>
+        <li>Contact Us</li>
+      </ul>
+      <div>
+        <button className="px-4 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
+          Donate
+        </button>
+      </div>
+    </div>
+  );
 
-            {/* Mobile Menu */}
-            {mobileMenuOpen && (
-                <div className="absolute top-16 left-0 w-full bg-[#ff2c2c] shadow-md flex flex-col md:hidden">
-                   <Link to="/" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Home</Link>
-                <Link to="/about" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">About</Link>
-                {/* <Link to="/donate" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Donation</Link> */}
-                <Link to="/gallery" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Gallery</Link>
-                <Link to="/documentation" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Documentation</Link>
-                <Link to="/contact" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Contact</Link>
-                </div>
-            )}
-        </nav>
-    );
+  return (
+    <>
+      {/* Original navbar (in flow) */}
+      <nav className="h-[94px] bg-white flex items-center px-10 relative z-10">
+        <NavbarContent />
+      </nav>
+
+      {/* Fixed navbar with animation */}
+      <nav
+        className={`h-[94px] bg-white flex items-center px-10 fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
+          ${isFixed ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"}`}
+      >
+        <NavbarContent />
+      </nav>
+    </>
+  );
 };
 
 export default Navbar;
