@@ -1,3 +1,4 @@
+import logo from './assets/logo.png';
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
@@ -24,7 +25,7 @@ const Navbar = () => {
     <div className="h-[65px] flex justify-between w-full items-center">
       <div>
         <img
-          src="src/assets/logo.png"
+          src={logo}
           alt="Logo"
           className="h-[65px] w-[65px]"
         />
