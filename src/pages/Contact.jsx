@@ -79,7 +79,7 @@ const Contact = () => {
             </div>
 
             {/* Card */}
-            <div className="w-full max-w-6xl bg-[#f01e2c] rounded-2xl shadow-2xl overflow-hidden md:flex">
+            <div className="max-w-6xl bg-[#f01e2c] rounded-2xl shadow-2xl overflow-hidden md:flex">
                 {/* Left Info */}
                 <div className="md:w-1/3 bg-[#ff2c2c] p-8 flex flex-col justify-center">
                     <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
@@ -114,7 +114,7 @@ const Contact = () => {
                 </div>
 
                 {/* Right Content */}
-                <div className="md:w-2/3 p-8">
+                <div className="md:w-1/3 p-8">
                     {activeTab === "contact" ? (
                         <>
                             <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>

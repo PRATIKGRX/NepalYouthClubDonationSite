@@ -26,7 +26,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
-                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-700 focus:outline-none">
+                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white focus:outline-none">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {mobileMenuOpen ? (
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -39,7 +39,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="absolute top-16 left-0 w-full bg-[#ff2c2c] shadow-md flex flex-col md:hidden">
+                <div className="absolute text-white top-16 left-0 w-full bg-[#ff2c2c] shadow-md flex flex-col md:hidden">
                    <Link to="/" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Home</Link>
                 <Link to="/about" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">About</Link>
                 {/* <Link to="/donate" className="hover:bg-[#c30010] rounded px-2 py-2 hover:text-white transition-colors">Donation</Link> */}
