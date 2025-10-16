@@ -2,6 +2,7 @@ import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { MdVerifiedUser } from "react-icons/md";
 import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
+import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
 const Home = () => {
   return (
     <>
@@ -79,6 +80,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <Gallery/>
       </main>
     </>
   );
