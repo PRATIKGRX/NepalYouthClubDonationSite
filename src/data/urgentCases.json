@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Support for Ram",
+    "image": "src/assets/img/person1.jpg",
+    "raised": 20000,
+    "goal": 250000
+  },
+  {
+    "id": 2,
+    "title": "Support for Shyam",
+    "image": "src/assets/img/person2.jpeg",
+    "raised": 100000,
+    "goal": 250000
+  },
+  {
+    "id": 3,
+    "title": "Support for Hari",
+    "image": "src/assets/img/person3.jpeg",
+    "raised": 50000,
+    "goal": 250000
+  },
+  {
+    "id": 4,
+    "title": "Support for Sita",
+    "image": "src/assets/img/person4.jpeg",
+    "raised": 10000,
+    "goal": 250000
+  },
+  {
+    "id": 5,
+    "title": "Support for Ravi",
+    "image": "src/assets/img/person5.jpeg",
+    "raised": 250000,
+    "goal": 250000,
+    "donors": []
+  }
+]

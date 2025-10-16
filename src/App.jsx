@@ -1,10 +1,13 @@
-import Home from "./pages/Home"
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+
 const App = () => {
   return (
     <div>
-      <Home/>
+      <Navbar />
+      <Home />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
