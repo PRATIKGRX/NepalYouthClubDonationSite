@@ -1,7 +1,7 @@
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { MdVerifiedUser } from "react-icons/md";
 import { MdHandshake } from "react-icons/md";
-import UrgentCases from "../components/urgentSection/UrgentCases";
+import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 const Home = () => {
   return (
     <>
@@ -51,32 +51,35 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <h4 className="text-[36px] mb-6">Learn About the Gen Z Protest</h4>
-        <div className="grid grid-cols-2 gap-8 pb-15">
-          <div className="flex flex-col gap-6 h-full">
-            <p className="text-[30px]">
-              We ensure every rupee goes directly from the donor to the victim.
-            </p>
-            <div>
-              <button className="px-3 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
-                View Full Documentation
-              </button>
+        {/* Urgent Attention Needed Section  */}
+        <div className="px-[46px]">
+          <UrgentCases />
+        </div>
+        {/* learn about section */}
+        <div>
+          <h4 className="text-[36px] mb-6">Learn About the Gen Z Protest</h4>
+          <div className="grid grid-cols-2 gap-8 pb-15">
+            <div className="flex flex-col gap-6 h-full">
+              <p className="text-[30px]">
+                We ensure every rupee goes directly from the donor to the
+                victim.
+              </p>
+              <div>
+                <button className="px-3 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
+                  View Full Documentation
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="w-full">
-            <img
-              src="https://i.pinimg.com/1200x/c7/36/f8/c736f83436d84ddc039fe42de40c8ec7.jpg"
-              alt=""
-              className="h-[260px] w-full"
-            />
+            <div className="w-full">
+              <img
+                src="https://i.pinimg.com/1200x/c7/36/f8/c736f83436d84ddc039fe42de40c8ec7.jpg"
+                alt=""
+                className="h-[260px] w-full"
+              />
+            </div>
           </div>
         </div>
       </main>
-
-      {/* Urgent Attention Needed Section  */}
-      <div className="px-[46px]">
-        <UrgentCases />
-      </div>
     </>
   );
 };

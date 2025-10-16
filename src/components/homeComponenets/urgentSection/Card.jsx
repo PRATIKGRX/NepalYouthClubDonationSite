@@ -1,6 +1,6 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
-import { formatNumber } from "../../utils/formatNumber";
+import { formatNumber } from "../../../utils/formatNumber";
 
 const Card = ({ title, image, raised, goal, large }) => {
   const progress = Math.min((raised / goal) * 100, 100);

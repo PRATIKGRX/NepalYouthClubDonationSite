@@ -1,7 +1,7 @@
-import React from "react";
+
 import Card from "./Card";
 import Button from "./Button";
-import data from "../../data/urgentCases.json";
+import data from "../../../data/urgentCases.json";
 
 const UrgentCases = () => {
   const featured = data[0];
