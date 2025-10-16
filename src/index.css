@@ -6,3 +6,6 @@
   --color-progress-dark: #022D73CC;
   --color-progress-light: #6196EB66;
 }
+*{
+  font-family: "Poppins", sans-serif;
+}

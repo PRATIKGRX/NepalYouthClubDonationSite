@@ -30,7 +30,7 @@ const Navbar = () => {
           className="h-[65px] w-[65px]"
         />
       </div>
-      <ul className="flex gap-4 items-center text-[20px]">
+      <ul className="flex gap-6 items-center text-[20px]">
         <li className="text-[#DC241F]">Home</li>
         <li>Gallery</li>
         <li>About</li>
