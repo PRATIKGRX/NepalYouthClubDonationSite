@@ -8,31 +8,33 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
-  //  Show loader when route changes
+
   useEffect(() => {
     setLoading(true);
-    // Wait for full page load (all assets, CSS, JS)
+    const startTime = Date.now();
+
     const handleLoad = () => {
-      setLoading(false);
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(300 - elapsed, 0); // at least 0.3 sec
+      setTimeout(() => setLoading(false), remaining);
     };
 
-    // Case 1: If the page is already loaded (cached)
     if (document.readyState === "complete") {
-      setLoading(false);
+      handleLoad();
     } else {
-      // Case 2: Wait for everything to load
       window.addEventListener("load", handleLoad);
     }
 
-    // Cleanup on unmount
     return () => window.removeEventListener("load", handleLoad);
   }, [location.pathname]);
+
   return (
     <div>
-      {loading && <Loader />} {/* Show loader */}
+      {loading && <Loader />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
