@@ -3,6 +3,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
+import AboutSection from "../components/homeComponenets/AboutSection";
 const Home = () => {
   return (
     <>
@@ -53,17 +54,20 @@ const Home = () => {
           </div>
         </div>
         {/* Urgent Attention Needed Section  */}
-        <div className="px-[46px]">
+        <div>
           <UrgentCases />
+        </div>
+        {/* about section by bali */}
+        <div>
+          <AboutSection />
         </div>
         {/* learn about section */}
         <div>
-          <h4 className="text-[36px] mb-6">Learn About the Gen Z Protest</h4>
+          <h4 className="text-[36px] mb-6 font-medium">Learn About the Gen Z Protest</h4>
           <div className="grid grid-cols-2 gap-8 pb-15">
             <div className="flex flex-col gap-6 h-full">
-              <p className="text-[30px]">
-                We ensure every rupee goes directly from the donor to the
-                victim.
+              <p className="text-[30px] text-[#7D7C7C]">
+                Full documentation of the GEN Z protest 2025 in Nepal
               </p>
               <div>
                 <button className="px-3 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
@@ -80,7 +84,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Gallery/>
+        <Gallery />
       </main>
     </>
   );
