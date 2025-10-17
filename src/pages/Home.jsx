@@ -4,7 +4,6 @@ import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
 import AboutSection from "../components/homeComponenets/AboutSection";
-import AboutSection from "../components/homeComponenets/AboutSection";
 const Home = () => {
   return (
     <>
