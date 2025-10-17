@@ -4,22 +4,23 @@ import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
 import AboutSection from "../components/homeComponenets/AboutSection";
+import AboutSection from "../components/homeComponenets/AboutSection";
 const Home = () => {
   return (
     <>
       <header>
         <div className="h-[672px] w-full flex justify-center items-center bg-[#DCDCDC]">
           <div className="text-center flex flex-col gap-4">
-            <h2 className="text-[64px]">
+            <h2 className="text-[64px] font-[500]">
               Together for a Better <br />
               Tomorrow
             </h2>
             <p className="text-[30px]">Empowering Youths. Suporting lives.</p>
-            <div className="flex items-center gap-4 justify-center text-[22px]">
-              <button className="px-3 py-2 rounded-sm text-white bg-[#DC241F]">
-                Donate Now
+            <div className="flex items-center gap-4 justify-center text-[22px] mt-4">
+              <button className="px-5 py-3 rounded-sm text-white bg-[#DC241F]">
+                DONATE NOW
               </button>
-              <button className="px-3 py-2 rounded-sm text-[#003893] border-[#003893] border">
+              <button className="px-5 py-3 rounded-sm text-[#003893] border-[#003893] bg-white border">
                 VOLUNTEER
               </button>
             </div>
@@ -54,8 +55,13 @@ const Home = () => {
           </div>
         </div>
         {/* Urgent Attention Needed Section  */}
+        <div className="">
         <div>
           <UrgentCases />
+        </div>
+        {/* about section by bali */}
+        <div>
+          <AboutSection />
         </div>
         {/* about section by bali */}
         <div>
