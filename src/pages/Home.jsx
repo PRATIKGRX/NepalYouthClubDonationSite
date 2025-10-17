@@ -16,7 +16,7 @@ const Home = () => {
             <p className="text-[30px]">Empowering Youths. Suporting lives.</p>
             <div className="flex items-center gap-4 justify-center text-[22px]">
               <button className="px-3 py-2 rounded-sm text-white bg-[#DC241F]">
-                donate now
+                Donate Now
               </button>
               <button className="px-3 py-2 rounded-sm text-[#003893] border-[#003893] border">
                 VOLUNTEER
