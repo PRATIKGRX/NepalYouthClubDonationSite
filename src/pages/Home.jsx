@@ -55,7 +55,6 @@ const Home = () => {
           </div>
         </div>
         {/* Urgent Attention Needed Section  */}
-        <div className="">
         <div>
           <UrgentCases />
         </div>
