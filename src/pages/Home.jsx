@@ -3,6 +3,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
+import AboutSection from "../components/homeComponenets/AboutSection";
 const Home = () => {
   return (
     <>
@@ -53,8 +54,12 @@ const Home = () => {
           </div>
         </div>
         {/* Urgent Attention Needed Section  */}
-        <div className="px-[46px]">
+        <div className="">
           <UrgentCases />
+        </div>
+        {/* about section by bali */}
+        <div>
+          <AboutSection />
         </div>
         {/* learn about section */}
         <div>
