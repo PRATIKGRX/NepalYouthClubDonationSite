@@ -8,6 +8,7 @@ import phoneCall from "../assets/phone-call.png";
 import pinMap from "../assets/pin-map.png";
 import tikTok from "../assets/tik-tok.png";
 import whatsApp from "../assets/whatsapp.png";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -58,10 +59,47 @@ const Footer = () => {
         <div className="flex flex-col items-center text-[18px] gap-6 ">
           <div className="font-medium">Quick Links</div>
           <ul className="flex flex-col items-center gap-3">
-            <li>Gallery</li>
-            <li>Documentary</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "hidden" : "hover:underline block"
+              }
+              end
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/gallery"
+              className={({ isActive }) =>
+                isActive ? "hidden" : "hover:underline block"
+              }
+            >
+              Gallery
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "hidden" : "hover:underline block"
+              }
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/documentation"
+              className={({ isActive }) =>
+                isActive ? "hidden" : "hover:underline block"
+              }
+            >
+              Documentation
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "hidden" : "hover:underline block"
+              }
+            >
+              Contact Us
+            </NavLink>
           </ul>
         </div>
         <div className="flex flex-col py-4 justify-between items-center gap-2">
