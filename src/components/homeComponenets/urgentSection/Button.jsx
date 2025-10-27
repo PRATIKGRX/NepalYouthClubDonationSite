@@ -3,7 +3,7 @@ const Button = ({ text, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-[var(--color-primary)] transition-colors text-white font-[400] px-[42px] py-[20px] rounded-[5px] text-[22px] uppercase hover:cursor-pointer "
+      className="bg-[var(--color-primary)] text-white px-[15px] py-[12px] rounded-[5px] text-[22px] hover:cursor-pointer hover:shadow-[4px_4px_5px_0px_rgba(0,0,0,0.4)] transition-all duration-300"
     >
       {text}
     </button>

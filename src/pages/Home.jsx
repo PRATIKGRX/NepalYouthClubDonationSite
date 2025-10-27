@@ -4,7 +4,7 @@ import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
 import  Gallery  from "../components/homeComponenets/gallerySection/Gallery";
 import AboutSection from "../components/homeComponenets/AboutSection";
-
+import Button from "../components/homeComponenets/urgentSection/Button";
 const Home = () => {
  
   return (
@@ -18,9 +18,7 @@ const Home = () => {
             </h2>
             <p className="text-[30px]">Empowering Youths. Suporting lives.</p>
             <div className="flex items-center gap-4 justify-center text-[22px] mt-4">
-              <button className="px-5 py-3 rounded-sm text-white bg-[#DC241F]">
-                DONATE NOW
-              </button>
+              <Button text={'DONATE NOW'}/>
               <button className="px-5 py-3 rounded-sm text-[#003893] border-[#003893] bg-white border">
                 VOLUNTEER
               </button>
@@ -72,9 +70,7 @@ const Home = () => {
                 Full documentation of the GEN Z protest 2025 in Nepal
               </p>
               <div>
-                <button className="px-3 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
-                  View Full Documentation
-                </button>
+                <Button text={'View Full Documentation'}/>
               </div>
             </div>
             <div className="w-full">
