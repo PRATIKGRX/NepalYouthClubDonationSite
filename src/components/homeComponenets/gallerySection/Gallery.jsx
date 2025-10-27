@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import Button from "../urgentSection/Button";
-import GalleryCard from "./GalleryCard";
-import { GoChevronLeft } from "react-icons/go";
-import { GoChevronRight } from "react-icons/go";
-// Import all images
+import { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
 import galleryimg from "../../../assets/galleryimg.jpg";
 import galleryimg2 from "../../../assets/galleryimg2.jpg";
 import galleryimg3 from "../../../assets/galleryimg3.jpg";
@@ -14,140 +13,106 @@ import galleryimg7 from "../../../assets/galleryimg7.jpg";
 import galleryimg8 from "../../../assets/galleryimg8.jpg";
 import galleryimg9 from "../../../assets/galleryimg9.jpg";
 import galleryimg10 from "../../../assets/galleryimg10.jpg";
+import Button from "../urgentSection/Button";
+const images = [
+  galleryimg,
+  galleryimg2,
+  galleryimg3,
+  galleryimg4,
+  galleryimg5,
+  galleryimg6,
+  galleryimg7,
+  galleryimg8,
+  galleryimg9,
+  galleryimg10,
+];
 
-export const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef(null);
-  const intervalRef = useRef(null);
-  const cardRef = useRef(null);
+export default function Gallery() {
+  // Setup Embla with autoplay + loop
+  const [emblaRef, embla] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "center",
+      skipSnaps: false,
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
 
-  const AUTO_SCROLL_INTERVAL = 3000;
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
 
-  const galleryPicture = [
-    galleryimg,
-    galleryimg2,
-    galleryimg3,
-    galleryimg4,
-    galleryimg5,
-    galleryimg6,
-    galleryimg7,
-    galleryimg8,
-    galleryimg9,
-    galleryimg10,
-  ];
+  // Buttons
+  const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
+  const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+  const scrollTo = useCallback((i) => embla && embla.scrollTo(i), [embla]);
 
-  const total = galleryPicture.length;
-
-  // Smooth scroll with no extra white space
- useEffect(() => {
-  const container = trackRef.current?.parentElement;
-  const track = trackRef.current;
-
-  if (!container || !track) return;
-
-  const maxTranslate = track.scrollWidth - container.offsetWidth;
-
-  // Calculate offset based on currentIndex, but don't exceed maxTranslate
-  const card = cardRef.current;
-  const style = window.getComputedStyle(track);
-  const gap = parseInt(style.gap) || 0;
-  const offset = currentIndex * (card.offsetWidth + gap);
-
-  track.style.transition = "transform 0.6s ease-in-out";
-  track.style.transform = `translateX(-${Math.min(offset, maxTranslate)}px)`;
-}, [currentIndex]);
-
-
-
-
-  // Auto-scroll
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1 >= total ? 0 : prev + 1));
-    }, AUTO_SCROLL_INTERVAL);
+    if (!embla) return;
+    setScrollSnaps(embla.scrollSnapList());
+    embla.on("select", () => setSelectedIndex(embla.selectedScrollSnap()));
+  }, [embla]);
 
-    return () => clearInterval(intervalRef.current);
-  }, [total]);
-
-  const restartAutoScroll = () => {
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1 >= total ? 0 : prev + 1));
-    }, AUTO_SCROLL_INTERVAL);
-  };
-
- const scrollLeft = () => {
-  clearInterval(intervalRef.current);
-  setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1)); // rewind to last
-  setTimeout(restartAutoScroll, 2000);
-};
-const scrollRight = () => {
-  clearInterval(intervalRef.current);
-
-  const container = trackRef.current?.parentElement;
-  const track = trackRef.current;
-  if (!container || !track) return;
-
-  const maxTranslate = track.scrollWidth - container.offsetWidth;
-  const style = window.getComputedStyle(track);
-  const gap = parseInt(style.gap) || 0;
-  const cardWidth = cardRef.current.offsetWidth;
-
-  // Scroll by one card width, clamp to maxTranslate
-  const offset = Math.min((currentIndex + 1) * (cardWidth + gap), maxTranslate);
-
-  setCurrentIndex(prev => {
-    // If already at max, rewind to start
-    return offset >= maxTranslate ? 0 : prev + 1;
-  });
-
-  setTimeout(restartAutoScroll, 2000);
-};
-
-
-
-  return (
-    <section className="pt-15 pb-20">
-      <div className="flex flex-col gap-6">
-        <h4 className="text-[34px]">Latest from our Gallery</h4>
-        <div className="relative w-full group">
-            <button
-            onClick={scrollLeft}
-            className="absolute top-1/2 -translate-y-1/2 left-[-20px] z-10 bg-stone-300 px-1 h-full hidden group-hover:block hover:cursor-pointer text-[20px]"
-          >
-            <GoChevronLeft />
-          </button>
-          <button
-            onClick={scrollRight}
-             className="absolute top-1/2 -translate-y-1/2 right-[-20px] z-10 bg-stone-300 px-1 h-full hidden group-hover:block hover:cursor-pointer text-[20px]"
-          >
-            <GoChevronRight/>
-          </button>
-
-        <div className=" overflow-hidden">
-          {/* Track container */}
-          <div
-            className="flex gap-4"
-            ref={trackRef}
-            style={{ willChange: "transform" }}
-          >
-            {galleryPicture.map((url, index) => (
+ return (
+  <>
+    <div className="select-none">
+      {/* Slider Wrapper (for centering buttons only on images) */}
+      <div className="relative">
+        {/* Viewport */}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {images.map((src, i) => (
               <div
-                key={index}
-                ref={index === 0 ? cardRef : null}
-                className="flex-shrink-0"
+                key={i}
+                className="
+                  flex-[0_0_33.333%] sm:flex-[0_0_33.333%] 
+                  md:flex-[0_0_25%] lg:flex-[0_0_20%] 
+                  px-2
+                "
               >
-                <GalleryCard image={url} />
+                <img
+                  src={src}
+                  alt={`Slide ${i}`}
+                  className="w-full h-[80px] xl:h-[190px] object-cover rounded-xl shadow-md"
+                />
               </div>
             ))}
           </div>
         </div>
-        </div>
 
-        <div className="flex justify-center">
-          <Button text="VIEW FULL GALLERY" />
-        </div>
+        {/* Buttons — centered vertically only relative to image area */}
+        <button
+          onClick={scrollPrev}
+          className="absolute left-[-6px] xl:left-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+        >
+          <FaAngleLeft />
+        </button>
+        <button
+          onClick={scrollNext}
+          className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+        >
+          <FaAngleRight />
+        </button>
       </div>
-    </section>
-  );
-};
+
+      {/* Dots */}
+      <div className="flex justify-center my-6 gap-2">
+        {scrollSnaps.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className={`w-[20px] h-[20px] rounded-full transition-all duration-300 ${
+              i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
+            }`}
+          ></button>
+        ))}
+      </div>
+
+      {/* View Full Gallery Button */}
+      <div className="flex justify-center mb-10">
+        <Button text={"VIEW FULL GALLERY"} />
+      </div>
+    </div>
+  </>
+);
+
+}

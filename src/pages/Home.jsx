@@ -2,7 +2,7 @@ import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { MdVerifiedUser } from "react-icons/md";
 import { MdHandshake } from "react-icons/md";
 import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases";
-import { Gallery } from "../components/homeComponenets/gallerySection/Gallery";
+import  Gallery  from "../components/homeComponenets/gallerySection/Gallery";
 import AboutSection from "../components/homeComponenets/AboutSection";
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <main className="px-12">
+      <main className="xl:px-12 px-8">
         <div className="grid grid-cols-3 py-15 w-full">
           <div className="flex justify-center items-center">
             <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex gap-2 flex-col items-center border border-[#00389378] h-[215px] w-[244px] rounded-[15px] text-[20px]">
@@ -58,10 +58,6 @@ const Home = () => {
         {/* Urgent Attention Needed Section  */}
         <div>
           <UrgentCases />
-        </div>
-        {/* about section by bali */}
-        <div>
-          <AboutSection />
         </div>
         {/* about section by bali */}
         <div>
