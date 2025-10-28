@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef, use } from "react";
+import { useEffect, useState, useCallback, useRef} from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import galleryimg from "../../../assets/galleryimg.jpg";
