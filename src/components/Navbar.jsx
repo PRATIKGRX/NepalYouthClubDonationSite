@@ -69,7 +69,7 @@ const Navbar = () => {
       </h1>
 
       {/* Desktop Links */}
-      <ul className="md:flex gap-6 items-center text-[20px] hidden">
+      <ul className="md:flex gap-6 items-center justify-center  text-[20px] hidden">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -121,11 +121,12 @@ const Navbar = () => {
         >
           Contact Us
         </NavLink>
+         
       </ul>
 
       <div className="flex items-center gap-3">
       
-        <Button text="Donate" className="md:block hidden" />
+     <Button text="Donate"/>
 
         {/* Hamburger only on mobile */}
         <button
@@ -142,12 +143,13 @@ const Navbar = () => {
           data-aos="fade-left"
           data-aos-offset="0"
           data-aos-easing="ease-in-out"
-          className="absolute right-0 top-[0px] bg-white shadow-lg p-4 rounded-l-lg w-[160px] flex flex-col gap-4 md:hidden transition-all duration-300 z-[100]"
+          
+          className="absolute right-0 top-[0px] bg-white shadow-lg p-4  rounded-l-lg w-[160px] flex flex-col gap-4 md:hidden transition-all duration-300 z-[100]"
         >
           <ul className="flex flex-col gap-3 text-[14px]">
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+              className={({ isActive }) => (isActive ? "text-[#DC241F] " : "")}
               end
               onClick={() => setIsMenuOpen(false)}
             >
@@ -195,8 +197,10 @@ const Navbar = () => {
           <button className="text-[#003893] border rounded-[3px] mt-10 border-[#003893] p-2 text-[10px]">
             VOLUNTEER
           </button>
+           
         </div>
       )}
+       
     </div>
   );
 
@@ -207,18 +211,19 @@ const Navbar = () => {
         <NavbarContent />
       </nav>
 
-      {/* Fixed Navbar */}
+  
       <nav
-        className={`xl:h-[94px] h-[45px] bg-white flex items-center
-      fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
-          ${
-            isFixed
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-full"
-          }`}
-      >
-        <NavbarContent />
-      </nav>
+  className={`xl:h-[94px] h-[45px] bg-white flex items-center
+  fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
+  ${
+    isFixed
+      ? "opacity-100 translate-y-0 pointer-events-auto"
+      : "opacity-0 -translate-y-full pointer-events-none"
+  }`}
+>
+  <NavbarContent />
+</nav>
+
     </div>
   );
 };
