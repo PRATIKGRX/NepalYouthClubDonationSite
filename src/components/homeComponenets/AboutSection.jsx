@@ -1,4 +1,4 @@
-import Button from "./urgentSection/Button";
+import Button from "../Button";
 export const AboutSection = () => {
   return (
     <div>

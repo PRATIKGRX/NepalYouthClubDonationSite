@@ -7,7 +7,7 @@ import { TbPhoto } from "react-icons/tb";
 import { FiInfo } from "react-icons/fi";
 import { MdOutlineFileCopy } from "react-icons/md";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
-import Button from "./homeComponenets/urgentSection/Button";
+import Button from "./Button";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);

@@ -11,8 +11,7 @@ import galleryimg7 from "../../../assets/galleryimg7.jpg";
 import galleryimg8 from "../../../assets/galleryimg8.jpg";
 import galleryimg9 from "../../../assets/galleryimg9.jpg";
 import galleryimg10 from "../../../assets/galleryimg10.jpg";
-import Button from "../urgentSection/Button";
-
+import Button from "../../Button";
 const images = [
   galleryimg,
   galleryimg2,

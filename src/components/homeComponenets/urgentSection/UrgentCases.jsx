@@ -1,6 +1,6 @@
 
 import Card from "./Card";
-import Button from "./Button";
+import Button from "../../Button";
 import data from "../../../data/urgentCases";
 
 const UrgentCases = () => {
