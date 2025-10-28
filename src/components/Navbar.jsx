@@ -1,7 +1,5 @@
 import logo from "../assets/logo.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useState, useEffect, useRef } from "react"; // 👈 Import useRef
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { SlHome } from "react-icons/sl";
@@ -13,21 +11,13 @@ import Button from "./homeComponenets/urgentSection/Button";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const navRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  // Initialize AOS
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
-  // Scroll logic for fixed navbar
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const trigger = window.innerHeight * 0.5;
-
       if (scrollY > trigger && !isFixed) setIsFixed(true);
       else if (scrollY <= trigger && isFixed) setIsFixed(false);
     };
@@ -36,48 +26,53 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFixed]);
 
-  
-  //for isMenuOpen closing 
+  // Close mobile menu on resize (optional, helpful)
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMenuOpen && navRef.current && !navRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
+    const handleResize = () => {
+      if (window.innerWidth >= 1280 && menuOpen) setMenuOpen(false); // xl breakpoint
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
       }
     };
-    if (isMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isMenuOpen]); 
 
-  const NavbarContent = () => (
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+  const NavbarContent = ({ isDesktop }) => (
     <div className="xl:h-[65px] h-[45px] flex justify-between w-full items-center relative xl:px-10 px-6">
-      {/* Logo */}
-      <div>
+      <div className="flex items-center gap-3">
         <img
           src={logo}
           alt="Logo"
           className="h-[32px] w-[32px] xl:h-[65px] xl:w-[65px]"
         />
+        {/* show title only on small screens */}
+        <h1 className="text-[15px] xl:hidden block">Nepal Youth Club</h1>
       </div>
 
-      {/* Title (only on mobile) */}
-      <h1 className="text-[15px] md:hidden block font-semibold">
-        Nepal Youth Club
-      </h1>
-
-      {/* Desktop Links */}
-      <ul className="md:flex gap-6 items-center justify-center  text-[20px] hidden">
+      {/* desktop links */}
+      <ul className="xl:flex gap-6 items-center text-[20px] hidden">
         <NavLink
           to="/"
+          end
           className={({ isActive }) =>
             isActive
               ? "text-[#DC241F]"
               : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)] transition-colors duration-300"
           }
-          end
         >
           Home
         </NavLink>
@@ -86,7 +81,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#DC241F]"
-              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)]"
+              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)] transition-colors duration-300"
           }
         >
           Gallery
@@ -96,7 +91,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#DC241F]"
-              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)]"
+              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)] transition-colors duration-300"
           }
         >
           About
@@ -106,7 +101,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#DC241F]"
-              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)]"
+              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)] transition-colors duration-300"
           }
         >
           Documentation
@@ -116,115 +111,125 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#DC241F]"
-              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)]"
+              : "hover:[text-shadow:4px_4px_5px_rgba(0,0,0,0.4)] transition-colors duration-300"
           }
         >
           Contact Us
         </NavLink>
-         
       </ul>
 
+      {/* right side: mobile menu button + donate button */}
       <div className="flex items-center gap-3">
-      
-     <Button text="Donate"/>
-
-        {/* Hamburger only on mobile */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-[24px] md:hidden block"
+          className="text-[24px] xl:hidden block"
+          aria-label="Toggle menu"
+          onClick={() => setMenuOpen(true)}
         >
           <LuMenu />
         </button>
-      </div>
-
-      {/* Mobile Menu (slide-in from right) */}
-      {isMenuOpen && (
-        <div
-          data-aos="fade-left"
-          data-aos-offset="0"
-          data-aos-easing="ease-in-out"
-          
-          className="absolute right-0 top-[0px] bg-white shadow-lg p-4  rounded-l-lg w-[160px] flex flex-col gap-4 md:hidden transition-all duration-300 z-[100]"
-        >
-          <ul className="flex flex-col gap-3 text-[14px]">
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? "text-[#DC241F] " : "")}
-              end
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex gap-2 items-center">
-                <SlHome /> Home
-              </div>
-            </NavLink>
-            <NavLink
-              to="/gallery"
-              className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex gap-2 items-center">
-                <TbPhoto /> Gallery
-              </div>
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex gap-2 items-center">
-                <FiInfo /> About
-              </div>
-            </NavLink>
-            <NavLink
-              to="/documentation"
-              className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex gap-2 items-center">
-                <MdOutlineFileCopy /> Documentation
-              </div>
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex gap-2 items-center">
-                <LiaPhoneSquareSolid /> Contact Us
-              </div>
-            </NavLink>
-          </ul>
-          <button className="text-[#003893] border rounded-[3px] mt-10 border-[#003893] p-2 text-[10px]">
-            VOLUNTEER
-          </button>
-           
+        <div className="hidden xl:block">
+          <Button text={"Donate"} />
         </div>
-      )}
-       
+        {/* show Donate as small button on mobile too */}
+      </div>
     </div>
   );
 
+  // Single mobile menu (rendered once, not duplicated)
+  const mobileMenuTop = isFixed ? "94px" : "65px"; // tweak if your nav heights differ
   return (
-    <div ref={navRef}> 
+    <>
       {/* Normal Navbar */}
       <nav className="xl:h-[94px] h-[45px] bg-white flex items-center relative z-10">
         <NavbarContent />
       </nav>
 
-  
+      {/* Fixed Navbar */}
       <nav
-  className={`xl:h-[94px] h-[45px] bg-white flex items-center
-  fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
-  ${
-    isFixed
-      ? "opacity-100 translate-y-0 pointer-events-auto"
-      : "opacity-0 -translate-y-full pointer-events-none"
-  }`}
->
-  <NavbarContent />
-</nav>
+        className={`xl:h-[94px] h-[45px] bg-white flex items-center 
+          fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
+          ${isFixed
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full"
+          }
+        `}
+      >
+        <NavbarContent />
+      </nav>
 
-    </div>
+      {/* Mobile menu (single instance) */}
+      <div
+        ref={menuRef}
+        className={`fixed top-0 right-0 z-[60] bg-white p-4 rounded-l-lg
+          transform transition-all duration-300 ease-in-out
+          ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+        role="menu"
+      >
+        <ul className="flex flex-col gap-2">
+          <NavLink
+            to="/"
+            end
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+          >
+            <div className="text-[12px] flex gap-2 items-center">
+              <SlHome className="text-[12px]" />
+              Home
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/gallery"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+          >
+            <div className="text-[12px] flex gap-2 items-center">
+              <TbPhoto className="text-[12px]" />
+              Gallery
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+          >
+            <div className="text-[12px] flex gap-2 items-center">
+              <FiInfo className="text-[12px]" />
+              About
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/documentation"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+          >
+            <div className="text-[12px] flex gap-2 items-center">
+              <MdOutlineFileCopy className="text-[12px]" />
+              Documentation
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
+          >
+            <div className="text-[12px] flex gap-2 items-center">
+              <LiaPhoneSquareSolid className="text-[12px]" />
+              Contact Us
+            </div>
+          </NavLink>
+        </ul>
+
+        <div className="mt-6">
+          <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
+            VOLUNTEER
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
