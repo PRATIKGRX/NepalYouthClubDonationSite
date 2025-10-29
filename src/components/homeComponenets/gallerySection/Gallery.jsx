@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef} from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import galleryimg from "../../../assets/galleryimg.jpg";
@@ -29,6 +29,7 @@ export default function Gallery() {
   const [emblaRef, embla] = useEmblaCarousel({ loop: false, align: "start" });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
   const [dots, setDots] = useState([]);
   const autoplayRef = useRef();
 
@@ -67,6 +68,7 @@ export default function Gallery() {
       const currentDot = Math.min(snap, embla.slideNodes().length - slidesInView);
       setSelectedIndex(currentDot);
       setCanScrollPrev(embla.canScrollPrev());
+      setCanScrollNext(embla.canScrollNext());
     };
 
     embla.on("select", onSelect);
@@ -142,13 +144,15 @@ export default function Gallery() {
             <FaAngleLeft />
           </button>
         )}
+        {canScrollNext && (
+          <button
+            onClick={scrollNext}
+            className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+          >
+            <FaAngleRight />
+          </button>
+        )}
 
-        <button
-          onClick={scrollNext}
-          className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
-        >
-          <FaAngleRight />
-        </button>
       </div>
 
       {/* Dots */}
