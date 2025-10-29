@@ -28,6 +28,8 @@ const images = [
 export default function Gallery() {
   const [emblaRef, embla] = useEmblaCarousel({ loop: false, align: "start" });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
   const [dots, setDots] = useState([]);
   const autoplayRef = useRef();
 
@@ -65,9 +67,14 @@ export default function Gallery() {
       const snap = embla.selectedScrollSnap();
       const currentDot = Math.min(snap, embla.slideNodes().length - slidesInView);
       setSelectedIndex(currentDot);
+      setCanScrollPrev(embla.canScrollPrev());
+      setCanScrollNext(embla.canScrollNext());
     };
 
     embla.on("select", onSelect);
+    embla.on("scroll", onSelect);
+    onSelect();
+
 
     // Autoplay
     const startAutoplay = () => {
@@ -129,18 +136,23 @@ export default function Gallery() {
         </div>
 
         {/* Buttons */}
-        <button
-          onClick={scrollPrev}
-          className="absolute left-[-6px] xl:left-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
-        >
-          <FaAngleLeft />
-        </button>
-        <button
-          onClick={scrollNext}
-          className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
-        >
-          <FaAngleRight />
-        </button>
+        {canScrollPrev && (
+          <button
+            onClick={scrollPrev}
+            className="absolute left-[-6px] xl:left-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+          >
+            <FaAngleLeft />
+          </button>
+        )}
+        {canScrollNext && (
+          <button
+            onClick={scrollNext}
+            className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+          >
+            <FaAngleRight />
+          </button>
+        )}
+
       </div>
 
       {/* Dots */}
@@ -149,9 +161,8 @@ export default function Gallery() {
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[20px] h-[20px] rounded-full transition-all duration-300 ${
-              i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
-            }`}
+            className={`w-[20px] h-[20px] rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
+              }`}
           ></button>
         ))}
       </div>
