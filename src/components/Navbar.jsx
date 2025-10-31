@@ -1,10 +1,16 @@
 import logo from "../assets/logo.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import MobileNavbar from "./MobileNavbar";
+import {FaBars} from "react-icons/fa";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
-
+  const [navOpen, setNavOpen] = useState(false)
+  const handleNavOpen = () => {
+    setNavOpen(!navOpen)
+  }
+console.log(navOpen)
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -20,11 +26,12 @@ const Navbar = () => {
 
   const NavbarContent = () => (
     <div className="h-[65px] flex justify-between w-full items-center">
-      <div>
-        <img src={logo} alt="Logo" className="h-[65px] w-[65px]" />
+      <div className="flex">
+        <div><img src={logo} alt="Logo" className="max-h-[65px] max-w-[65px]" /></div>
       </div>
+      <h2 className="md:hidden block my-auto sm:text-xl font-semibold">Nepal Youth Club</h2>
 
-      <ul className="flex gap-6 items-center text-[20px]">
+      <ul className="hidden md:flex gap-6 items-center text-[20px]">
         <NavLink to="/" className={({ isActive }) => isActive ? "text-[#DC241F]" : "hover:text-[#DC241F] transition-colors duration-300"} end>
           Home
         </NavLink>
@@ -42,7 +49,11 @@ const Navbar = () => {
         </NavLink>
       </ul>
 
-      <div>
+      <button className="w-[24px] flex justify-center md:hidden text-3xl" onClick={()=>handleNavOpen()}>
+        {navOpen? "X" : <FaBars/>}
+      </button>
+
+      <div className="hidden md:block">
         <button className="px-4 py-2 rounded-sm bg-[#DC241F] text-white text-[22px]">
           Donate
         </button>
@@ -68,6 +79,7 @@ const Navbar = () => {
       >
         <NavbarContent />
       </nav>
+      {navOpen && <div className="p-[10px] fixed"><MobileNavbar/></div>}
     </>
   );
 };

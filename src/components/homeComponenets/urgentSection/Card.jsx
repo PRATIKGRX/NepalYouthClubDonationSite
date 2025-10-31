@@ -1,24 +1,40 @@
 import ProgressBar from "./ProgressBar";
 import { formatNumber } from "../../../utils/formatNumber";
+import Button from "./Button";
 
-const Card = ({ title, image, raised, goal, large }) => {
+const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
   const progress = Math.min((raised / goal) * 100, 100);
 
   return (
     <div
       className={`rounded-t-[15px] overflow-hidden flex flex-col ${
-        large ? "h-full" : "h-[318px] w-full"
+        large ? "md:h-[644px] sm:h-[500px] h-[400px]" : "h-[318px] w-full"
       }`}
     >
       <div
-        className={`rounded-[15px] bg-gray-300 h-full w-full`}
+        className={`rounded-[15px] bg-gray-300 h-full w-full flex justify-end`}
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-      ></div>
+      >
+        <div
+          className={`  ${
+            large
+              ? "h-[24px] md:h-[85px] md:w-[144px] w-[30px]"
+              : "h-[40px] w-[70px]"
+          } rounded-bl-xl bg-white`}
+        ></div>
+        <Button
+          onClick={() => alert("Under Development")}
+          text={"Donate"}
+          className={`absolute ${
+            large ? "" : "!text-[11px] !px-[10px] !py-[9px]"
+          }  w-min h-min `}
+        />
+      </div>
 
       <div className="py-4">
         <div className="flex justify-between items-center my-3.5">

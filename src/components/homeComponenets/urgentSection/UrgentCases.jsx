@@ -1,4 +1,3 @@
-
 import Card from "./Card";
 import Button from "./Button";
 import data from "../../../data/urgentCases";
@@ -9,13 +8,13 @@ const UrgentCases = () => {
 
   return (
     <section className="py-10">
-      <h2 className="text-4xl leading-20 tracking-normal font-medium uppercase">
+      <h2 className="md:text-4xl text-xl md:leading-20 tracking-normal font-bold uppercase">
         Urgent Attention Needed
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-[50px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:my-[50px]">
         {/* Featured card */}
-        <div>
+        <div className="relative">
           <Card
             title={featured.title}
             image={featured.image}
@@ -27,7 +26,7 @@ const UrgentCases = () => {
         </div>
 
         {/* Other small cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative grid grid-cols-2 gap-4 sm:gap-6">
           {others.map((item) => (
             <Card key={item.id} {...item} />
           ))}
