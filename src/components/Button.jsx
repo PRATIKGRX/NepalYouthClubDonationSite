@@ -1,9 +1,8 @@
-
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, className = "" }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-[var(--color-primary)] text-white px-[15px] py-[12px] rounded-[5px] text-[22px] hidden md:flex hover:cursor-pointer hover:shadow-[4px_4px_5px_0px_rgba(0,0,0,0.4)] transition-all duration-300"
+      className={`bg-[var(--color-primary)] transition-colors text-white font-[400] px-[24px] py-[21px] rounded-[5px] text-[22px] uppercase hover:cursor-pointer hover:bg-[#8E1B17] ${className}`}
     >
       {text}
     </button>

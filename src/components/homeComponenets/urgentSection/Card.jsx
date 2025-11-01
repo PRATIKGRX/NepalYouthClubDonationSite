@@ -1,6 +1,6 @@
 import ProgressBar from "./ProgressBar";
 import { formatNumber } from "../../../utils/formatNumber";
-import Button from "./Button";
+import Button from "../../Button";
 
 const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
   const progress = Math.min((raised / goal) * 100, 100);
@@ -23,7 +23,7 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
         <div
           className={`  ${
             large
-              ? "h-[55px] md:h-[85px] md:w-[144px] w-[110px]"
+              ? "h-[70px] md:h-[75px] md:w-[130px] w-[125px]"
               : "h-[40px] w-[70px]"
           } rounded-bl-xl bg-white`}
         ></div>
@@ -31,7 +31,7 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
           onClick={() => alert("Under Development")}
           text={"Donate"}
           className={`absolute ${
-            large ? "!p-2" : "!text-[11px] !px-[10px] !py-[9px]"
+            large ? "!p-4" : "!text-[11px] !px-[10px] !py-[9px]"
           }  w-min h-min `}
         />
       </div>
