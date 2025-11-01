@@ -23,7 +23,7 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
         <div
           className={`  ${
             large
-              ? "h-[24px] md:h-[85px] md:w-[144px] w-[30px]"
+              ? "h-[55px] md:h-[85px] md:w-[144px] w-[110px]"
               : "h-[40px] w-[70px]"
           } rounded-bl-xl bg-white`}
         ></div>
@@ -31,7 +31,7 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
           onClick={() => alert("Under Development")}
           text={"Donate"}
           className={`absolute ${
-            large ? "" : "!text-[11px] !px-[10px] !py-[9px]"
+            large ? "!p-2" : "!text-[11px] !px-[10px] !py-[9px]"
           }  w-min h-min `}
         />
       </div>
@@ -40,7 +40,7 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
         <div className="flex justify-between items-center my-3.5">
           <h3
             className={`${
-              large ? "text-3xl" : "text-2xl"
+              large ? "md:text-3xl" : "md:text-2xl"
             } font-bold leading-5 uppercase mb-2`}
           >
             {title}
