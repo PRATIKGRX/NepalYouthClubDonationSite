@@ -17,6 +17,7 @@ const UrgentCases = () => {
         <div className="relative">
           <Card
             title={featured.title}
+            desc={featured?.desc}
             image={featured.image}
             raised={featured.raised}
             goal={featured.goal}

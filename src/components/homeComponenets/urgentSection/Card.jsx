@@ -2,17 +2,25 @@ import ProgressBar from "./ProgressBar";
 import { formatNumber } from "../../../utils/formatNumber";
 import Button from "../../Button";
 
-const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
+const Card = ({
+  title,
+  image,
+  raised,
+  goal,
+  large,
+  donateButton = false,
+  desc,
+}) => {
   const progress = Math.min((raised / goal) * 100, 100);
 
   return (
     <div
-      className={`rounded-t-[15px] overflow-hidden flex flex-col ${
+      className={` rounded-t-[15px] overflow-hidden flex flex-col ${
         large ? "md:h-[644px] sm:h-[500px] h-[400px]" : "h-[318px] w-full"
       }`}
     >
       <div
-        className={`rounded-[15px] bg-gray-300 h-full w-full flex justify-end`}
+        className={`relative group rounded-[15px] bg-gray-300 h-full w-full flex justify-end`}
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",
@@ -20,6 +28,19 @@ const Card = ({ title, image, raised, goal, large, donateButton = false }) => {
           backgroundRepeat: "no-repeat",
         }}
       >
+        <div
+          className={`absolute ${
+            large ? "p-12 pt-24" : "p-6 pt-12"
+          } w-full h-full opacity-0 group-hover:opacity-100 group-hover:bg-gradient-to-b from-transparent to-zinc-800 transition-all duration-500`}
+        >
+          <p
+            className={`w-full h-full text-white break-words text-justify ${
+              large ? "text-xl line-clamp-[12]" : "text-xs line-clamp-6"
+            } line`}
+          >
+            {desc}
+          </p>
+        </div>
         <div
           className={`  ${
             large
