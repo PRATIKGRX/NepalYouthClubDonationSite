@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Documentation from "./pages/Documentation";
+import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/documentation" element={<Documentation />} />
+        <Route path="/donate" element={<Donate/>}/>
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
       <Footer />
