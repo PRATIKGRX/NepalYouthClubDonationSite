@@ -4,13 +4,13 @@ export const AboutSection = () => {
     <div>
       {/* Heading */}
       <section className="py-16">
-        <h1 className="text-[36px] mb-6 font-medium">About Nepal Youth Club</h1>
+        <h1 className="text-[15px] md:text-3xl lg:text-[36px] mb-6 font-medium uppercase lg:normal-case ">About Nepal Youth Club</h1>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Left Content */}
-          <div className="flex flex-col gap-8">
-            <p className="text-gray-700">
+          <div className="flex flex-col gap-8 lg:order-1">
+            <p className="text-gray-700 text-justify">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -20,17 +20,18 @@ export const AboutSection = () => {
               sunt in culpa qui officia deserunt mollit anim id est laborum.amet
               consectetur adipisicing elit. Sunt alias provident animi!
             </p>
-            <div>
+            <div className="flex justify-center lg:justify-start">
+              
               <Button text={"READ MORE"} />
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="w-full ">
+          <div className="w-full order-first lg:order-2 ">
             <img
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=614&h=330&fit=crop"
               alt="Nepal Youth Club Activities"
-              className="rounded-[5px]  object-cover w-full h-[330px]"
+              className="rounded-[5px]  object-cover w-full aspect-[4/3] sm:aspect-[16/9] lg:h-[330px]"
             />
           </div>
         </div>
