@@ -128,7 +128,10 @@ const Navbar = () => {
           <LuMenu />
         </button>
         <div className="hidden xl:block">
-          <Button text={"Donate"} />
+          <NavLink to={'/donate'}>
+            <Button text={"Donate"} />
+          </NavLink>
+          
         </div>
         {/* show Donate as small button on mobile too */}
       </div>
