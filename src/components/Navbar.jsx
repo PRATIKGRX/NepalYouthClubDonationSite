@@ -60,9 +60,9 @@ const Navbar = () => {
           className="h-[32px] w-[32px] xl:h-[65px] xl:w-[65px]"
         />
         {/* show title only on small screens */}
-        <h1 className="text-[15px] xl:hidden block">Nepal Youth Club</h1>
+        
       </div>
-
+<h1 className="text-[15px] xl:hidden block font-semibold">Nepal Youth Club</h1>
       {/* desktop links */}
       <ul className="xl:flex gap-6 items-center text-[20px] hidden">
         <NavLink
