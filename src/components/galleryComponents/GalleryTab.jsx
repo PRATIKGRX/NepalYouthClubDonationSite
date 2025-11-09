@@ -19,7 +19,11 @@ const GalleryTab = () => {
 
         <Tabs.List className="flex gap-2 lg:gap-6 text-xs lg:text-sm flex-wrap">
           {tabItems.map((item) => (
-            <Tabs.Trigger key={item || index} value={item.toLowerCase()} className={tabStyle}>
+            <Tabs.Trigger
+              key={item || index}
+              value={item.toLowerCase()}
+              className={tabStyle}
+            >
               {item}
             </Tabs.Trigger>
           ))}
