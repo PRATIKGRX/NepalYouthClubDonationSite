@@ -8,12 +8,13 @@ import { FiInfo } from "react-icons/fi";
 import { MdOutlineFileCopy } from "react-icons/md";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -55,14 +56,18 @@ const Navbar = () => {
     <div className="xl:h-[65px] h-[45px] flex justify-between w-full items-center relative xl:px-10 px-6">
       <div className="flex items-center gap-3">
         <img
+          onClick={() => {
+            navigate("/");
+          }}
           src={logo}
           alt="Logo"
           className="h-[32px] w-[32px] xl:h-[65px] xl:w-[65px]"
         />
         {/* show title only on small screens */}
-        
       </div>
-<h1 className="text-[15px] xl:hidden block font-semibold">Nepal Youth Club</h1>
+      <h1 className="text-[15px] xl:hidden block font-semibold">
+        Nepal Youth Club
+      </h1>
       {/* desktop links */}
       <ul className="xl:flex gap-6 items-center text-[20px] hidden">
         <NavLink
@@ -128,12 +133,10 @@ const Navbar = () => {
           <LuMenu />
         </button>
         <div className="hidden xl:block">
-          <NavLink to={'/donate'}>
+          <NavLink to={"/donate"}>
             <Button text={"Donate"} />
           </NavLink>
-          
         </div>
-        {/* show Donate as small button on mobile too */}
       </div>
     </div>
   );
@@ -151,9 +154,10 @@ const Navbar = () => {
       <nav
         className={`xl:h-[94px] h-[45px] bg-white flex items-center 
           fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
-          ${isFixed
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
+          ${
+            isFixed
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full"
           }
         `}
       >
@@ -165,7 +169,11 @@ const Navbar = () => {
         ref={menuRef}
         className={`fixed top-0 right-0 z-[60] bg-white p-4 rounded-l-lg
           transform transition-all duration-300 ease-in-out
-          ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          ${
+            menuOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          }`}
         role="menu"
       >
         <ul className="flex flex-col gap-2">
@@ -227,9 +235,22 @@ const Navbar = () => {
         </ul>
 
         <div className="mt-6">
-          <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
+          <div>
+            <button
+            onClick={() => {
+              navigate("/donate");
+              setMenuOpen(false); 
+            }}
+            className="p-2 text-[10px] bg-[#DC241F] rounded-[3px] text-white mb-3"
+          >
+            DONATE
+          </button>
+          </div>
+          <div>
+            <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
             VOLUNTEER
           </button>
+          </div>
         </div>
       </div>
     </>

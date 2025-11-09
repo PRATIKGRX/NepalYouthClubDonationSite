@@ -1,7 +1,9 @@
 import Card from "../components/aboutComponents/Card";
 import Button from "../components/Button";
 import TeamSection from "../components/aboutComponents/TeamSection";
+import { useNavigate } from "react-router-dom";
 const About = () => {
+  const navigate=useNavigate()
   return (
     <>
       <header>
@@ -50,7 +52,9 @@ text ever since the 1500s,`}
           />
         </div>
         <div className="flex justify-center">
-          <Button text={"JOIN OUR MISSION"} />
+          <Button text={"JOIN OUR MISSION"} onClick={()=>{
+            navigate('/contact')
+          }} />
         </div>
       </section>
       <section className="bg-[#F5F5F5] px-12 py-20 flex flex-col gap-12">
