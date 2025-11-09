@@ -27,7 +27,7 @@ const images = [
     {
       title: "All",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           {images.map((imgsrc,idx)=>(
             <img key={idx} src={imgsrc} alt="" className="mb-2"/>
           ))}
@@ -38,7 +38,7 @@ const images = [
     {
       title: "Events",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           {/* 🖼️ Add event images or descriptions */}
           <p className="text-center text-zinc-500">Event-related images go here.</p>
         </div>
@@ -47,7 +47,7 @@ const images = [
     {
       title: "Volunteer Works",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           <p className="text-center text-zinc-500">
             Photos or details of volunteer works go here.
           </p>
@@ -57,7 +57,7 @@ const images = [
     {
       title: "Social Campaigns",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           <p className="text-center text-zinc-500">
             Add your social campaign gallery or write-up here.
           </p>
@@ -67,7 +67,7 @@ const images = [
     {
       title: "Workshops And Training",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           <p className="text-center text-zinc-500">
             Show photos or details of workshops/training programs.
           </p>
@@ -77,7 +77,7 @@ const images = [
     {
       title: "GenZ Protest",
       content: (
-        <div className="columns-3 gap-2">
+        <div className="columns-2 md:columns-3 gap-2">
           <p className="text-center text-zinc-500">
             Add your GenZ protest visuals or updates here.
           </p>
