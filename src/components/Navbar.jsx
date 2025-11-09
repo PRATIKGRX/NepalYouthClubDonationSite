@@ -60,9 +60,13 @@ const Navbar = () => {
           className="h-[32px] w-[32px] xl:h-[65px] xl:w-[65px]"
         />
         {/* show title only on small screens */}
-        <h1 className="text-[15px] xl:hidden block">Nepal Youth Club</h1>
+        <h1 className="text-[15px] hidden md:block xl:hidden ">
+          Nepal Youth Club
+        </h1>
       </div>
-      <h2 className="md:hidden block my-auto sm:text-xl font-semibold">Nepal Youth Club</h2>
+      <h2 className="md:hidden block my-auto sm:text-xl font-semibold">
+        Nepal Youth Club
+      </h2>
 
       {/* desktop links */}
       <ul className="xl:flex gap-6 items-center text-[20px] hidden">
@@ -129,10 +133,9 @@ const Navbar = () => {
           <LuMenu />
         </button>
         <div className="hidden xl:block">
-          <NavLink to={'/donate'}>
+          <NavLink to={"/donate"}>
             <Button text={"Donate"} />
           </NavLink>
-          
         </div>
         {/* show Donate as small button on mobile too */}
       </div>
@@ -152,9 +155,10 @@ const Navbar = () => {
       <nav
         className={`xl:h-[94px] h-[45px] bg-white flex items-center 
           fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
-          ${isFixed
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
+          ${
+            isFixed
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full"
           }
         `}
       >
@@ -164,9 +168,13 @@ const Navbar = () => {
       {/* Mobile menu (single instance) */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-[60] bg-white p-4 rounded-l-lg
+        className={`fixed top-0 right-0 z-[60] bg-white h-full w-1/2 p-4 pt-12 rounded-l-lg
           transform transition-all duration-300 ease-in-out
-          ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          ${
+            menuOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          }`}
         role="menu"
       >
         <ul className="flex flex-col gap-2">
