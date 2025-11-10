@@ -64,12 +64,12 @@ const Card = ({
           >
             {title}
           </h3>
-          <div className={`${!large && "hidden"} font-medium text-xl`}>
+          <div className={`${!large && "hidden"} font-medium md:text-xl text-[8px]`}>
             Goal: {formatNumber(raised)}
           </div>
         </div>
         <ProgressBar progress={progress} />
-        <p className="text-xl font-semibold mt-2">
+        <p className="md:text-xl text-[8px] font-semibold mt-2">
           {formatNumber(raised)} raised
         </p>
       </div>

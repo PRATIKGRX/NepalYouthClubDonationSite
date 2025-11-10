@@ -4,7 +4,7 @@ export const AboutSection = () => {
     <div>
       {/* Heading */}
       <section className="py-16">
-        <h1 className="text-xl md:text-[36px] mb-6 font-medium">
+        <h1 className="text-[13px] md:text-[36px] mb-6 font-medium">
           About Nepal Youth Club
         </h1>
 
@@ -21,7 +21,7 @@ export const AboutSection = () => {
 
           {/* Left Content */}
           <div className="flex flex-col gap-8 items-center md:items-start">
-            <p className="text-gray-700 text-justify">
+            <p className="text-gray-700 text-justify text-[8px] md:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
