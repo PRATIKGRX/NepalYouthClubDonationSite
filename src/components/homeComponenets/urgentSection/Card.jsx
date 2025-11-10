@@ -59,7 +59,7 @@ const Card = ({
         <div className="flex justify-between items-center my-3.5">
           <h3
             className={`${
-              large ? "md:text-3xl" : "md:text-2xl"
+              large ? "md:text-3xl text-[13px]" : "md:text-2xl text-[13px]"
             } font-bold leading-5 uppercase mb-2`}
           >
             {title}

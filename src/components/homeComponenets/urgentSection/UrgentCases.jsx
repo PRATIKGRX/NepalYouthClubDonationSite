@@ -8,7 +8,7 @@ const UrgentCases = () => {
 
   return (
     <section className="py-10">
-      <h2 className="md:text-4xl text-[13px] leading-15 md:leading-20 tracking-normal font-bold uppercase">
+      <h2 className="md:text-4xl text-[13px] leading-15 md:leading-20 tracking-normal font-semibold uppercase">
         Urgent Attention Needed
       </h2>
 
