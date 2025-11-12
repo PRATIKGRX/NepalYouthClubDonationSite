@@ -8,34 +8,34 @@ import { FaXTwitter } from "react-icons/fa6";
 const Contact = () => {
   return (
     <main>
-      <section className="px-12 py-15">
-        <p className="text-[36px] font-medium mb-6">Get in Touch with Us</p>
-        <div className="grid grid-cols-2 gap-6">
-          <div className=" border border-[#FF201A] rounded-[5px] px-8 py-4 flex flex-col gap-5">
-            <p className="text-[32px] font-medium">Message Us</p>
+      <section className="md:px-12 md:py-15 sm:px-8 sm:py-10 px-4 py-6 bg-[#F5F5F5]">
+        <p className="lg:text-[36px] text-[20px] sm:text-[22px] font-semibold mb-6">Get in Touch with Us</p>
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
+          <div className=" border border-[#FF201A] rounded-[5px] px-4 py-4 sm:px-8 sm:py-4 flex flex-col gap-5 text-sm md:text-md">
+            <p className="lg:text-[32px] sm:text-[18px] text-[16px] font-medium">Message Us</p>
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="Name"
               className="text-[20px] py-3 px-5 border border-[#8C8484] rounded-[10px] focus:outline-1 focus:outline-[#FF201A] "
             />
             <input
               type="email"
               className="text-[20px] py-3 px-5 border border-[#8C8484] rounded-[10px] focus:outline-1 focus:outline-[#FF201A]"
-              placeholder="Your Email"
+              placeholder="Email"
             />
             <textarea
               name=""
               className="text-[20px] py-3 px-5 border border-[#8C8484] rounded-[10px] focus:outline-1 focus:outline-[#FF201A] resize-none h-50"
-              placeholder="Your Message"
+              placeholder="Message"
               id=""
             ></textarea>
             <div>
-              <button className="bg-[#DC241F] text-white text-[22px] px-4 py-2 rounded-[5px]">
+              <button className="bg-[#DC241F] text-white md:text-[22px] text-[16px] px-4 py-2 rounded-[5px] hover:cursor-pointer">
                 Send Message
               </button>
             </div>
           </div>
-          <div className="h-full p-8 py-10 relative bg-blue-500/10 z-5">
+          <div className="h-full p-8 py-10 relative bg-blue-500/10 z-5 lg:block hidden">
             <img
               src="tabicon.png"
               alt="nepalyouth club logo"
@@ -73,7 +73,7 @@ const Contact = () => {
         </div>
         <div></div>
       </section>
-      <section className="px-12 py-15">
+      <section className="md:px-12 md:py-15 sm:px-8 sm:py-10 px-4 py-6">
         <p className="text-[36px] font-medium">OUR LOCATION</p>
         <div className="aspect-video w-full mt-6">
           <iframe
