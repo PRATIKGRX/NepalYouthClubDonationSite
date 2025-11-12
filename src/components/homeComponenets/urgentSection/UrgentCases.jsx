@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import Button from "../../Button";
 import data from "../../../data/urgentCases";
@@ -29,11 +30,8 @@ const UrgentCases = () => {
         </div>
 
         {/* Other small cards - control section height to hide overflow when collapsed */}
-        <div
-          className={`relative transition-all duration-500 ${
-            showAll ? "max-h-[1200px]" : "max-h-[320px] overflow-hidden"
-          }`}
-        >
+        <div   className="relative  max-h-[300px] overflow-hidden lg:max-h-full
+                    ">
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {others.map((item) => (
               <Card key={item.id} {...item} />
@@ -43,10 +41,9 @@ const UrgentCases = () => {
       </div>
 
       <div className="text-center">
-        <Button
-          text={showAll ? "Show Less" : "View All Cases"}
-          onClick={() => setShowAll((s) => !s)}
-        />
+        <Link to="/donate" className="inline-block ml-4">
+          <Button text="View all cases" />
+        </Link>
       </div>
     </section>
   );
