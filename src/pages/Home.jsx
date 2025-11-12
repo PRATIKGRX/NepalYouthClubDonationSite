@@ -5,7 +5,9 @@ import UrgentCases from "../components/homeComponenets/urgentSection/UrgentCases
 import Gallery from "../components/homeComponenets/gallerySection/Gallery";
 import AboutSection from "../components/homeComponenets/AboutSection";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navigate=useNavigate();
   const threeCards = [
     { id: 1, title: "100% Direct Transfer", icon: <RiMoneyDollarCircleFill /> },
     { id: 2, title: "Verified Cases", icon: <MdVerifiedUser /> },
@@ -22,7 +24,7 @@ const Home = () => {
             </h2>
             <p className="xl:text-[30px] md:text-[18px] text-[12px]">Empowering Youths. Suporting lives.</p>
             <div className="flex items-center gap-4 justify-center text-[22px] mt-4">
-              <Button text={"DONATE NOW"} />
+              <Button text={"DONATE NOW"} onClick={()=>navigate('/donate')}/>
               <button className="px-3 py-2 md:px-[15px] md:py-[12px] rounded-[5px] md:text-[22px] text-[10px]  text-[#003893] border-[#003893] bg-white border hidden md:block">
                 VOLUNTEER
               </button>
@@ -76,7 +78,7 @@ const Home = () => {
               <div className="text-center">
                 <Button
                   text={"View Full Documentation"}
-                  className="text-[10px] px-8 py-5"
+                  className="text-[10px] px-8 py-5" onClick={()=>navigate('/documentation')}
                 />
               </div>
             </div>
