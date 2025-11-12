@@ -1,5 +1,7 @@
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 export const AboutSection = () => {
+  const navigate=useNavigate();
   return (
     <div>
       {/* Heading */}
@@ -11,18 +13,11 @@ export const AboutSection = () => {
           {/* Left Content */}
           <div className="flex flex-col gap-4 lg:gap-8 lg:order-1">
             <p className="text-gray-700 text-justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.amet
-              consectetur adipisicing elit. Sunt alias provident animi!
+              Nepal Youth Club is a youth-centered platform that empowers young Nepalis through volunteer programs, internships, mental health support, capacity building, and civic engagement. In order to support a generation that is knowledgeable, engaged, and prepared to spearhead constructive social change, the Club extends an invitation to young people from Nepal and overseas to hone their leadership abilities, acquire real-world experience, and take part in community projects that tackle issues of education, public health, the environment, and digital literacy.
             </p>
             <div className="flex justify-center lg:justify-start">
               
-              <Button text={"READ MORE"} />
+              <Button text={"READ MORE"} onClick={()=>navigate('about')} />
             </div>
           </div>
 

@@ -12,6 +12,7 @@ import galleryimg8 from "../../../assets/galleryimg8.jpg";
 import galleryimg9 from "../../../assets/galleryimg9.jpg";
 import galleryimg10 from "../../../assets/galleryimg10.jpg";
 import Button from "../../Button";
+import { useNavigate } from "react-router-dom";
 const images = [
   galleryimg,
   galleryimg2,
@@ -32,7 +33,7 @@ export default function Gallery() {
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [dots, setDots] = useState([]);
   const autoplayRef = useRef();
-
+const navigate=useNavigate();
   // Scroll buttons
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -169,7 +170,7 @@ export default function Gallery() {
 
       {/* View Full Gallery Button */}
       <div className="flex justify-center mb-10">
-        <Button text={"VIEW FULL GALLERY"} />
+        <Button text={"VIEW FULL GALLERY"} onClick={()=>navigate('gallery')} />
       </div>
     </div>
   );
