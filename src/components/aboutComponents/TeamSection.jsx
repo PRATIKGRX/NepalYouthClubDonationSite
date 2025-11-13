@@ -106,7 +106,7 @@ const TeamSection = () => {
 
   return (
     <div className="select-none">
-      <p className="text-[36px] font-medium mb-6">MEET OUR TEAM</p>
+      <p className="md:text-[36px] text-[24px] font-medium mb-3 md:mb-6">MEET OUR TEAM</p>
 
       <div className="relative">
         {/* Viewport */}
@@ -115,7 +115,7 @@ const TeamSection = () => {
             {teamMembers.map((member, i) => (
               <div
                 key={i}
-                className="flex-[0_0_25%] px-3"
+                className="lg:flex-[0_0_25%] flex-[0_0_33.33%]  px-3"
                 onMouseEnter={stopAutoplay}
                 onMouseLeave={startAutoplay}
               >
@@ -154,7 +154,7 @@ const TeamSection = () => {
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[12px] h-[12px] rounded-full transition-all duration-300 ${
+            className={`md:w-[12px] md:h-[12px] w-[9px] h-[9px] rounded-full transition-all duration-300 ${
               i === selectedIndex ? "bg-black" : "bg-gray-300"
             }`}
           ></button>

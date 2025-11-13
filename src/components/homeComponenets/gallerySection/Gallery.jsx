@@ -162,7 +162,7 @@ const navigate=useNavigate();
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[20px] h-[20px] rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
+            className={`md:w-[12px] md:h-[12px] w-[9px] h-[9px] rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
               }`}
           ></button>
         ))}

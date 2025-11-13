@@ -8,9 +8,11 @@ const About = () => {
     <>
       <header>
         <div className="bg-[#D9D9D9] h-[300px]"></div>
-        <div className="grid grid-cols-[1fr_3fr] px-12 py-15">
-          <p className="font-medium text-[36px] text-[#003893]">WHO WE ARE</p>
-          <p className="text-[16px] font-light px-6">
+        <div className="grid xl:grid-cols-[1fr_3fr] md:grid-cols-1 lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5">
+          <p className="font-medium md:text-[36px] text-[24px] text-[#003893]">
+            WHO WE ARE
+          </p>
+          <p className="md:text-[16px] text-[12px] font-light xl:px-6 px-2">
             Nepal Youth Club is a volunteer-run organization that organizes
             trainings, youth advocacy campaigns, internships, community
             projects, and mental health counseling. From social media campaigns
@@ -24,8 +26,8 @@ const About = () => {
           </p>
         </div>
       </header>
-      <section className="px-12 py-15 flex flex-col gap-20">
-        <div className="grid grid-cols-3 gap-4">
+      <section className="lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5 flex flex-col md:gap-10 gap-6 xl:gap-20">
+        <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-4 gap-8">
           <Card
             title={"MISSION"}
             description={`Our mission is to enable Nepal's youth to become capable, self-assured, and caring leaders who can improve their own and their communities' futures. Through education, skill development, mental health awareness, and civic engagement, Nepal Youth Club aims to give young people the opportunity to learn, lead, and make a lasting impact. We work to dismantle barriers to inequality and give all young people, regardless of background, the same chance to realize their potential and make a positive impact on a fair, sustainable, and prosperous Nepal.`}
@@ -48,7 +50,7 @@ const About = () => {
           />
         </div>
       </section>
-      <section className="bg-[#F5F5F5] px-12 py-20 flex flex-col gap-12">
+      <section className="bg-[#F5F5F5] lg:px-12 lg:py-20  sm:px-8 sm:py-10 px-3 py-5 flex flex-col gap-12">
         <TeamSection />
       </section>
     </>
