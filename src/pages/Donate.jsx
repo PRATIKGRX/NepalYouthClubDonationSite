@@ -1,10 +1,7 @@
 import { CiSearch } from "react-icons/ci";
-import Button from "../components/Button";
 import FeatureSection from "../components/donationComponents/FeatureSection";
 import AdditionalCaseSection from "../components/donationComponents/AdditionalCaseSection";
 const Donate = () => {
- 
-
   return (
     <>
       <header>

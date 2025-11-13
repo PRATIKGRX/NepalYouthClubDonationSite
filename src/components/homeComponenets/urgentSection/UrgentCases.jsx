@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Button from "../../Button";
-import data from "../../../data/urgentCases";
+import data from "../../../data/cases";
 
 const UrgentCases = () => {
-  const [showAll, setShowAll] = useState(false);
-  const featured = data[0];
-  const others = data.slice(1);
+  const [displayCount, setDisplayCount] = useState(5);
+
+  // Update display count based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setDisplayCount(3); // Mobile: show 3
+      } else {
+        setDisplayCount(5); // Desktop: show 5
+      }
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Filter urgent cases and slice according to displayCount
+  const urgentCases = data.filter((item) => item.status === "urgent").slice(0, displayCount);
+  const featured = urgentCases[0];
+  const others = urgentCases.slice(1);
 
   return (
     <section className="py-10">
@@ -17,21 +36,22 @@ const UrgentCases = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:my-[50px]">
         {/* Featured card */}
-        <div className="relative">
-          <Card
-            title={featured.title}
-            desc={featured?.desc}
-            image={featured.image}
-            raised={featured.raised}
-            goal={featured.goal}
-            donors={featured.donors}
-            large
-          />
-        </div>
+        {featured && (
+          <div className="relative">
+            <Card
+              title={featured.title}
+              desc={featured?.desc}
+              image={featured.image}
+              raised={featured.raised}
+              goal={featured.goal}
+              donors={featured.donors}
+              large
+            />
+          </div>
+        )}
 
-        {/* Other small cards - control section height to hide overflow when collapsed */}
-        <div   className="relative  max-h-[300px] overflow-hidden lg:max-h-full
-                    ">
+        {/* Other small cards */}
+        <div className="relative max-h-[300px] overflow-hidden lg:max-h-full">
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {others.map((item) => (
               <Card key={item.id} {...item} />

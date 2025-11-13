@@ -2,68 +2,17 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import FeatureCard from "../donationComponents/FeatureCard";
-
-const victimData = [
-  {
-    id: 1,
-    victimImage: "",
-    victimName: "Ramesh Shrestha",
-    victimStatus: "Critical",
-    victimDescription: "Suffering from severe injuries due to a road accident.",
-    progressPercent: 60,
-    raisedAmount: "1.5 lakhs",
-    goalAmount: "2.5 lakhs",
-  },
-  {
-    id: 2,
-    victimImage: "",
-    victimName: "Sita Gurung",
-    victimStatus: "Serious",
-    victimDescription: "Undergoing surgery after a major health complication.",
-    progressPercent: 45,
-    raisedAmount: "90,000",
-    goalAmount: "2 lakhs",
-  },
-  {
-    id: 3,
-    victimImage: "",
-    victimName: "Bishal Rai",
-    victimStatus: "Stable",
-    victimDescription:
-      "Recovering from a severe burn injury and needs treatment.",
-    progressPercent: 75,
-    raisedAmount: "3 lakhs",
-    goalAmount: "4 lakhs",
-  },
-  {
-    id: 4,
-    victimImage: "",
-    victimName: "Anita Thapa",
-    victimStatus: "Critical",
-    victimDescription:
-      "Needs urgent medical support for kidney failure treatment.",
-    progressPercent: 30,
-    raisedAmount: "60,000",
-    goalAmount: "2 lakhs",
-  },
-  {
-    id: 5,
-    victimImage: "",
-    victimName: "Kiran Lama",
-    victimStatus: "Under Observation",
-    victimDescription: "Recovering after a severe heart surgery.",
-    progressPercent: 85,
-    raisedAmount: "1.7 lakhs",
-    goalAmount: "2 lakhs",
-  },
-];
+import data from "../../data/cases";
 
 const FeatureSection = () => {
- const [emblaRef, embla] = useEmblaCarousel({
-  loop: false,
-  align: "center",
-  slidesToScroll: 1,
-});
+  // Filter urgent cases
+  const urgentCases = data.filter((item) => item.status === "urgent");
+
+  const [emblaRef, embla] = useEmblaCarousel({
+    loop: false,
+    align: "center",
+    slidesToScroll: 1,
+  });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -149,16 +98,25 @@ const FeatureSection = () => {
         {/* Viewport */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
-            {victimData.map((card, i) => (
-              <div
-                key={i}
-               className="flex-[0_0_100%] px-4"
-                onMouseEnter={stopAutoplay}
-                onMouseLeave={startAutoplay}
-              >
-                <FeatureCard {...card} />
-              </div>
-            ))}
+            {urgentCases.map((item) => (
+  <div
+    key={item.id}
+    className="flex-[0_0_100%] px-4"
+    onMouseEnter={stopAutoplay}
+    onMouseLeave={startAutoplay}
+  >
+    <FeatureCard
+      victimImage={item.image}
+      victimName={item.title}
+      victimStatus={item.status}
+      victimDescription={item.desc}
+      progressPercent={Math.floor((item.raised / item.goal) * 100)}
+      raisedAmount={item.raised.toLocaleString()} // optional formatting
+      goalAmount={item.goal.toLocaleString()}
+    />
+  </div>
+))}
+
           </div>
         </div>
 

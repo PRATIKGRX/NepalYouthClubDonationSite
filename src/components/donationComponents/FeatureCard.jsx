@@ -12,7 +12,7 @@ const FeatureCard = ({
     <div className="w-full flex justify-center ">
 <div className="grid grid-cols-2 h-[350px] w-[84%] rounded-[15px] overflow-hidden">
       <div className="bg-[#D9D9D9] h-full">
-        <img src='' alt={victimName} className="h-full w-full object-cover" />
+        <img src={victimImage} alt={victimName} className="h-full w-full object-cover" />
       </div>
 
       <div className="h-full p-3 border border-[#003893] rounded-r-[15px] flex flex-col justify-between">

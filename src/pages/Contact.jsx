@@ -36,17 +36,19 @@ const Contact = () => {
             </div>
           </div>
           <div className="h-full p-8 py-10 relative bg-blue-500/10 z-5 lg:block hidden">
-            <img
+            <div className="absolute inset-0 opacity-20 z-0 w-[80%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center">
+              <img
               src="tabicon.png"
               alt="nepalyouth club logo"
-              className="absolute inset-0 opacity-20 z-4 w-[80%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="w-full"
             />
+            </div>
             <div className="realtive z-10 h-full flex flex-col justify-between">
               <p className="md:text-[32px] text-lg font-medium">
                 Other ways to Connect
               </p>
               <div className="flex flex-col justify-between gap-20">
-                <div className="flex flex-col gap-10 text-[20px] px-10">
+                <div className="flex flex-col gap-10 text-[20px] px-10 relative ">
                   <p className="flex gap-8 items-center">
                     <IoMail className="text-white text-3xl bg-[#DC241F] p-1 rounded-full" />
                     info@nepalyouthclub.com
@@ -60,7 +62,7 @@ const Contact = () => {
                     Kausaltar (Floor above Nepal Bank)
                   </p>
                 </div>
-                <div className="text-4xl flex justify-center gap-6">
+                <div className="text-4xl flex justify-center gap-6 relative">
                   <FaFacebook className="fill-[#2A5EAD]" />
                   <IoLogoInstagram className="text-white text-2xl bg-[#2A5EAD] h-9  w-9 px-2 rounded-full" />
 
