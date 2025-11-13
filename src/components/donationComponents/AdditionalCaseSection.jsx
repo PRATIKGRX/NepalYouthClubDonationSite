@@ -21,25 +21,25 @@ const AdditionalCaseSection = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-6">
-  {normalCasesData.slice(0, visibleCount).map((caseItem) => (
-    <AdditionalCaseCard
-      key={caseItem.id}
-      victimName={caseItem.title}
-      imageSrc={caseItem.image} // can be empty if no image
-      raisedAmount={caseItem.raised.toLocaleString()} // optional formatting
-      goalAmount={caseItem.goal.toLocaleString()}
-      progressPercent={Math.floor((caseItem.raised / caseItem.goal) * 100)}
-    />
-  ))}
-</div>
+      <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-6">
+        {normalCasesData.slice(0, visibleCount).map((caseItem) => (
+          <AdditionalCaseCard
+            key={caseItem.id}
+            victimName={caseItem.title}
+            imageSrc={caseItem.image} // can be empty if no image
+            raisedAmount={caseItem.raised.toLocaleString()} // optional formatting
+            goalAmount={caseItem.goal.toLocaleString()}
+            progressPercent={Math.floor(
+              (caseItem.raised / caseItem.goal) * 100
+            )}
+          />
+        ))}
+      </div>
 
       <div className="flex justify-center mt-4">
         <Button
           text={
-            visibleCount < normalCasesData.length
-              ? "SHOW MORE"
-              : "SHOW LESS"
+            visibleCount < normalCasesData.length ? "SHOW MORE" : "SHOW LESS"
           }
           onClick={handleToggle}
         />

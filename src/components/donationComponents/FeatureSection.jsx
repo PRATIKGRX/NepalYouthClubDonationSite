@@ -46,7 +46,9 @@ const FeatureSection = () => {
     if (!embla) return;
 
     const calculateDots = () => {
-      const containerWidth = embla.containerNode().getBoundingClientRect().width;
+      const containerWidth = embla
+        .containerNode()
+        .getBoundingClientRect().width;
       const slideWidth = embla.slideNodes()[0].getBoundingClientRect().width;
       const slidesInView = Math.floor(containerWidth / slideWidth);
       const totalSlides = embla.slideNodes().length;
@@ -62,7 +64,9 @@ const FeatureSection = () => {
     embla.on("resize", calculateDots);
 
     const onSelect = () => {
-      const containerWidth = embla.containerNode().getBoundingClientRect().width;
+      const containerWidth = embla
+        .containerNode()
+        .getBoundingClientRect().width;
       const slideWidth = embla.slideNodes()[0].getBoundingClientRect().width;
       const slidesInView = Math.floor(containerWidth / slideWidth);
       const snap = embla.selectedScrollSnap();
@@ -99,24 +103,23 @@ const FeatureSection = () => {
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {urgentCases.map((item) => (
-  <div
-    key={item.id}
-    className="flex-[0_0_100%] px-4"
-    onMouseEnter={stopAutoplay}
-    onMouseLeave={startAutoplay}
-  >
-    <FeatureCard
-      victimImage={item.image}
-      victimName={item.title}
-      victimStatus={item.status}
-      victimDescription={item.desc}
-      progressPercent={Math.floor((item.raised / item.goal) * 100)}
-      raisedAmount={item.raised.toLocaleString()} // optional formatting
-      goalAmount={item.goal.toLocaleString()}
-    />
-  </div>
-))}
-
+              <div
+                key={item.id}
+                className="flex-[0_0_100%] px-4"
+                onMouseEnter={stopAutoplay}
+                onMouseLeave={startAutoplay}
+              >
+                <FeatureCard
+                  victimImage={item.image}
+                  victimName={item.title}
+                  victimStatus={item.status}
+                  victimDescription={item.desc}
+                  progressPercent={Math.floor((item.raised / item.goal) * 100)}
+                  raisedAmount={item.raised.toLocaleString()} // optional formatting
+                  goalAmount={item.goal.toLocaleString()}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -145,7 +148,7 @@ const FeatureSection = () => {
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[12px] h-[12px] rounded-full transition-all duration-300 ${
+            className={`md:w-[12px] md:h-[12px] h-[9px] w-[9px] rounded-full transition-all duration-300 ${
               i === selectedIndex ? "bg-black" : "bg-gray-300"
             }`}
           ></button>
