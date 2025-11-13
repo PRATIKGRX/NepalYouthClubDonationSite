@@ -15,6 +15,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    //  Scroll to top on route change
+    window.scrollTo(0, 0);
+
     setLoading(true);
     const startTime = Date.now();
 
@@ -43,7 +46,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/documentation" element={<Documentation />} />
-        <Route path="/donate" element={<Donate/>}/>
+        <Route path="/donate" element={<Donate />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
       <Footer />
