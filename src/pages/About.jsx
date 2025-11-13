@@ -7,7 +7,9 @@ const About = () => {
   return (
     <>
       <header>
-        <div className="bg-[#D9D9D9] h-[300px]"></div>
+        <div className="bg-[#D9D9D9] md:h-[300px] h-[200px] justify-center flex items-center">
+          <h3 className="xl:text-6xl md:text-5xl text-4xl font-bold ">About US</h3>
+        </div>
         <div className="grid xl:grid-cols-[1fr_3fr] md:grid-cols-1 lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5">
           <p className="font-medium md:text-[36px] text-[24px] text-[#003893]">
             WHO WE ARE
