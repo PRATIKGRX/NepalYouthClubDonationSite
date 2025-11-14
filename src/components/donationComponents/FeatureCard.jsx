@@ -1,17 +1,22 @@
+import { useNavigate } from "react-router-dom";
 const FeatureCard = ({
+  id,
   victimImage,
   victimName,
-  victimStatus,
   victimDescription,
   progressPercent = 80, // default 80% if not passed
   raisedAmount,
   goalAmount,
 }) => {
+  const navigate=useNavigate();
   return (
     <>
     <div className="w-full flex justify-center ">
 <div className="grid grid-cols-2 lg:h-[350px] lg:aspect-auto aspect-video md:w-[84%] w-full rounded-[15px] overflow-hidden">
-      <div className="bg-[#D9D9D9] h-full">
+      <div className="bg-[#D9D9D9] h-full w-full relative">
+       <button  onClick={()=>navigate(`/donate/${id}`)} className="absolute text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white hover:cursor-pointer bg-[#DC241F] top-2 right-2 hover:opacity-90 transition">
+          DONATE
+        </button>
         <img src={victimImage} alt={victimName} className="h-full w-full object-cover" />
       </div>
 

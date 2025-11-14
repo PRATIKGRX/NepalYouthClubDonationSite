@@ -110,6 +110,7 @@ const FeatureSection = () => {
                 onMouseLeave={startAutoplay}
               >
                 <FeatureCard
+                id={item.id}
                   victimImage={item.image}
                   victimName={item.title}
                   victimStatus={item.status}

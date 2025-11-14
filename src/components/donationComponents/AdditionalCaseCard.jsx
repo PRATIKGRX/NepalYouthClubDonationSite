@@ -1,15 +1,18 @@
+import { useNavigate } from "react-router-dom";
 const AdditionalCaseCard = ({
+  id,
   victimName,
   imageSrc,
   raisedAmount,
   goalAmount,
   progressPercent,
 }) => {
+  const navigate=useNavigate();
   return (
     <div className="flex flex-col gap-2 md:gap-3">
       {/* Image and Donate Button */}
       <div className="bg-[#D9D9D9] relative aspect-video lg:aspect-auto lg:h-[275px] w-full rounded-[10px] overflow-hidden">
-        <button className="absolute text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white bg-[#DC241F] top-2 right-2 hover:opacity-90 transition">
+        <button onClick={() => navigate(`/donate/${id}`)} className="absolute hover:cursor-pointer text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white bg-[#DC241F] top-2 right-2 hover:opacity-90 transition">
           DONATE
         </button>
         <img

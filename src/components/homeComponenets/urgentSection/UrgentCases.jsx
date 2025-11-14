@@ -39,6 +39,7 @@ const UrgentCases = () => {
         {featured && (
           <div className="relative">
             <Card
+            id={featured.id}
               title={featured.title}
               desc={featured?.desc}
               image={featured.image}

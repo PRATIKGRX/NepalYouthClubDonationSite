@@ -22,9 +22,10 @@ const AdditionalCaseSection = () => {
   return (
     <>
       <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-6">
-        {normalCasesData.slice(0, visibleCount).map((caseItem) => (
+        {normalCasesData.slice(0, visibleCount).map((caseItem,idx) => (
           <AdditionalCaseCard
-            key={caseItem.id}
+          id={caseItem.id}
+            key={idx}
             victimName={caseItem.title}
             imageSrc={caseItem.image} // can be empty if no image
             raisedAmount={caseItem.raised.toLocaleString()} // optional formatting

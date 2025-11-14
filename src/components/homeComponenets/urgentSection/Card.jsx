@@ -1,8 +1,9 @@
 import ProgressBar from "./ProgressBar";
 import { formatNumber } from "../../../utils/formatNumber";
 import UrgentButton from "./UrgentButton";
-
+import { useNavigate } from "react-router-dom";
 const Card = ({
+  id,
   title,
   image,
   raised,
@@ -11,7 +12,7 @@ const Card = ({
   desc,
 }) => {
   const progress = Math.min((raised / goal) * 100, 100);
-
+const navigate=useNavigate();
   return (
     <div
       className={` rounded overflow-hidden flex flex-col ${
@@ -48,6 +49,7 @@ const Card = ({
           } rounded-bl-xl bg-white relative`}
         ></div>
         <UrgentButton
+        onClick={()=>navigate(`/donate/${id}`)}
           text={"Donate"}
           className={`absolute ${
             large ? "!p-4" : "!text-[11px] !px-[10px] !py-[9px]"

@@ -138,9 +138,9 @@ const Footer = () => {
           </div>
 
           {/* Social Section */}
-          <div className="h-full flex flex-col py-4 justify-between md:items-center md:gap-2 gap-8 col-auto  ">
-            <div className="flex flex-col xl:items-center gap-3">
-              <div className="font-medium xl:text-[18px] text-[16px] text-[#8B929D] xl:text-white">
+          <div className="h-full  py-4 md:items-center md:gap-2 gap-8 col-auto  ">
+            <div className="flex flex-col h-full justify-between sm:items-center gap-3">
+              <div className="font-medium xl:text-[18px] text-[16px] text-[#8B929D] sm:text-white">
                 Connect with us
               </div>
               <div className="flex gap-3 items-center text-[24px]">
@@ -171,14 +171,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="xl:text-[15px] text-[10px] text-center flex xl:flex-col gap-2">
-              <p>
-                <a href="#">Terms and Conditions</a>
-              </p>
-              <p>
-                <a href="#">Privacy Policy</a>
-              </p>
-            </div>
+            
           </div>
         </div>
       </div>
