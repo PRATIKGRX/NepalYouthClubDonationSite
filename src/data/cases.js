@@ -12,7 +12,7 @@ const data = Array.from({ length: 20 }, (_, i) => ({
   image: people[i % people.length], // cycle through images
   raised: Math.floor(Math.random() * 250001), // random raised amount between 0 and 250000
   goal: 250000,
-  desc: "This is a description of mine.",
+  desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   status: Math.random() < 0.3 ? "urgent" : "normal", // 30% chance urgent, 70% normal
 }));
 
