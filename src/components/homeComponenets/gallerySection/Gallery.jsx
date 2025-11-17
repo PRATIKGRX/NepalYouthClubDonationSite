@@ -103,7 +103,7 @@ const navigate=useNavigate();
   }, [embla]);
 
   return (
-    <div className="select-none">
+    <div className="select-none 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
       <div className="relative">
         {/* Viewport */}
         <div

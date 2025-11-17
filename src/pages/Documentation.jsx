@@ -1,11 +1,11 @@
 const Documentation = () => {
   return (
     <>
-      <header className="h-60 text-center flex items-center xl:text-[43px] md:text-[34px] sm:text-[28px] text-[24px] font-bold bg-[#D9D9D9]">
+      <header className=" 2xl:h-[400px] md:h-[250px] h-[225px] text-center flex items-center xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 font-bold bg-[#D9D9D9]">
         <h3 className="w-full">DOCUMENTATION OF GEN-Z PROTEST 2025</h3>
       </header>
       <main>
-        <section className="md:text-[24px] sm:text-[18px] lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5 text-[16px] flex flex-col md:gap-6 sm:gap-4 gap-2">
+        <section className="md:text-[24px] sm:text-[18px] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 text-[16px] flex flex-col md:gap-6 sm:gap-4 gap-2">
           <div className="">
             <h4 className=" xl:text-[36px] md:text-[28px] sm:text-[24px] text-[22px] font-medium">INTRODUCTION</h4>
             <p className="">
@@ -66,7 +66,7 @@ const Documentation = () => {
             </p>
           </div>
         </section>
-        <section className="md:text-[24px] sm:text-[18px] lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5 text-[16px] flex flex-col md:gap-6 sm:gap-4 gap-2">
+        <section className="md:text-[24px] sm:text-[18px] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 text-[16px] flex flex-col md:gap-6 sm:gap-4 gap-2">
           <h3 className="xl:text-[36px] md:text-[28px] sm:text-[22px] text-[18px] font-bold text-center">Chronological Timeline</h3>
           <div>
             <h4 className=" xl:text-[36px] md:text-[28px] sm:text-[24px] text-[22px] font-medium">September 5–7: The Build-Up</h4>

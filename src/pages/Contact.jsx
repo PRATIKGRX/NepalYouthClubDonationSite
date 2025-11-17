@@ -8,8 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 const Contact = () => {
   return (
     <main>
-      <section className="md:px-12 md:py-15 sm:px-8 sm:py-10 px-4 py-6 bg-[#F5F5F5]">
-        <p className="lg:text-[36px] text-[20px] sm:text-[22px] font-semibold mb-6">Get in Touch with Us</p>
+      <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 bg-[#F5F5F5]">
+        <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-semibold mb-6">Get in Touch with Us</p>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
           <div className=" border border-[#FF201A] rounded-[5px] px-4 py-4 sm:px-8 sm:py-4 flex flex-col gap-5 text-sm md:text-md">
             <p className="lg:text-[32px] sm:text-[18px] text-[16px] font-medium">Message Us</p>
@@ -75,8 +75,8 @@ const Contact = () => {
         </div>
         <div></div>
       </section>
-      <section className="md:px-12 md:py-15 sm:px-8 sm:py-10 px-4 py-6">
-        <p className="text-[36px] font-medium">OUR LOCATION</p>
+      <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+        <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-medium">OUR LOCATION</p>
         <div className="aspect-video w-full mt-6">
           <iframe
             title="Google Map"

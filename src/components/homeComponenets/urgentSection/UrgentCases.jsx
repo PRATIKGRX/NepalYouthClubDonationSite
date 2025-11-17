@@ -27,10 +27,11 @@ const UrgentCases = () => {
   const urgentCases = data.filter((item) => item.status === "urgent").slice(0, displayCount);
   const featured = urgentCases[0];
   const others = urgentCases.slice(1);
-
+// xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg
+// 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5
   return (
-    <section className="py-10">
-      <h2 className="md:text-4xl text-xl leading-15 md:leading-20 tracking-normal font-bold uppercase">
+    <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+      <h2 className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-bold uppercase">
         Urgent Attention Needed
       </h2>
 

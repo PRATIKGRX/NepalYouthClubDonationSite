@@ -106,7 +106,7 @@ const TeamSection = () => {
 
   return (
     <div className="select-none">
-      <p className="md:text-[36px] text-[24px] font-medium mb-3 md:mb-6">MEET OUR TEAM</p>
+      <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-medium mb-3 md:mb-6">MEET OUR TEAM</p>
 
       <div className="relative">
         {/* Viewport */}

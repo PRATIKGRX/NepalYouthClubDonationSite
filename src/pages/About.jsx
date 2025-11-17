@@ -7,11 +7,11 @@ const About = () => {
   return (
     <>
       <header>
-        <div className="bg-[#D9D9D9] md:h-[300px] h-[200px] justify-center flex items-center">
-          <h3 className="xl:text-6xl md:text-5xl text-4xl font-bold ">About US</h3>
+        <div className="bg-[#D9D9D9] 2xl:h-[400px] md:h-[250px] h-[225px] justify-center flex items-center ">
+          <h3 className="xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] font-bold ">About US</h3>
         </div>
-        <div className="grid xl:grid-cols-[1fr_3fr] md:grid-cols-1 lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5">
-          <p className="font-medium md:text-[36px] text-[24px] text-[#003893]">
+        <div className="grid xl:grid-cols-[1fr_3fr] md:grid-cols-1 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+          <p className="font-medium xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg text-[#003893]">
             WHO WE ARE
           </p>
           <p className="md:text-[16px] text-[12px] font-light xl:px-6 px-2">
@@ -28,7 +28,7 @@ const About = () => {
           </p>
         </div>
       </header>
-      <section className="lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5 flex flex-col md:gap-10 gap-6 xl:gap-20">
+      <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col md:gap-10 gap-6 xl:gap-20">
         <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-4 gap-8">
           <Card
             title={"MISSION"}
@@ -52,7 +52,7 @@ const About = () => {
           />
         </div>
       </section>
-      <section className="bg-[#F5F5F5] lg:px-12 lg:py-20  sm:px-8 sm:py-10 px-3 py-5 flex flex-col gap-12">
+      <section className="bg-[#F5F5F5] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col gap-12">
         <TeamSection />
       </section>
     </>

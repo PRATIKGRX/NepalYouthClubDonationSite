@@ -13,16 +13,19 @@ const Home = () => {
     { id: 2, title: "Verified Cases", icon: <MdVerifiedUser /> },
     { id: 3, title: "Non-Profit initiative", icon: <MdHandshake /> },
   ];
+  // xl:h-[700px] 2xl:h-[800px] md:h-[500px] h-[450px] 
+  // xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] main head text
+  // xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px]
   return (
     <>
       <header>
-        <div className="xl:h-[672px] md:h-[94vh] h-[60vh] w-full flex justify-center items-center bg-[#DCDCDC]">
+        <div className="xl:h-[700px] 2xl:h-[800px] md:h-[500px] h-[450px] w-full flex justify-center items-center bg-[#DCDCDC] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
           <div className="text-center flex flex-col gap-4">
-            <h2 className="xl:text-[64px] md:text-[40px] text-[22px] font-[500]">
+            <h2 className="xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] font-bold">
               Together for a Better <br />
               Tomorrow
             </h2>
-            <p className="xl:text-[30px] md:text-[18px] text-[12px]">Empowering Youths. Suporting lives.</p>
+            <p className="xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px]">Empowering Youths. Suporting lives.</p>
             <div className="flex items-center gap-4 justify-center text-[22px] mt-4">
               <Button text={"DONATE NOW"} onClick={()=>navigate('/donate')}/>
               <button className="px-3 py-2 md:px-[15px] md:py-[12px] rounded-[5px] md:text-[22px] text-[10px]  text-[#003893] border-[#003893] bg-white border hidden md:block">
@@ -32,18 +35,18 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <main className="xl:px-12 px-8">
-        <div className="grid grid-cols-3 gap-6 pt-8 md:py-15 w-full">
+      <main className="">
+        <div className="grid grid-cols-3 2xl:gap-20 xl:gap-15 sm:gap-5 gap-4 lg:gap-10 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 w-full">
           {threeCards.map((item) => (
             <div
-              className="flex justify-center items-center"
+              className="flex justify-center w-full h-full items-center"
               key={item?.id || index}
             >
-              <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex gap-4 p-2 md:gap-2 flex-col items-center border border-[#00389378] h-[100px] md:h-[244px] w-[244px] rounded-[15px] text-[20px]">
-                <div className="md:text-[120px] text-[34px] text-[#DC241F]">
+              <div className="shadow-[4px_4px_9px_rgba(0,56,147,0.4)] justify-center flex  flex-col items-center border w-full h-full border-[#00389378] 2xl:p-15 xl:p-10 md:p-4 p-2 gap-4 rounded-[15px]">
+                <div className="2xl:text-[150px] xl:text-[125px] md:text-[100px] sm:text-[80px] text-[70px] text-[#DC241F]">
                   {item?.icon}
                 </div>
-                <p className="text-[10px] md:text-xl text-center">
+                <p className=" 2xl:text-2xl xl:text-xl md:text-lg text-sm text-center">
                   {item?.title}
                 </p>
               </div>
@@ -59,13 +62,13 @@ const Home = () => {
           <AboutSection />
         </div>
         {/* learn about section */}
-        <div>
-          <h4 className="text-[13px] md:text-[36px] mb-2 md:mb-6 font-medium">
+        <div className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+          <h4 className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg mb-2 md:mb-6 font-medium">
             Learn About the Gen Z Protest
           </h4>
           <div className="grid md:grid-cols-2 gap-8 pb-15">
             <div className="flex flex-col gap-6 h-full">
-              <p className="text-[8px] md:text-[30px] text-[#7D7C7C]">
+              <p className="xl:text-2xl 2xl:text-3xl lg:text-xl sm:text-lg text-[#7D7C7C]">
                 Full documentation of the GEN Z protest 2025 in Nepal
               </p>
               <div className="w-full">

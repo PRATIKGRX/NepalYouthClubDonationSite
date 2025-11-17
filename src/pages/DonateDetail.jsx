@@ -38,7 +38,7 @@ const DonateDetail = () => {
 }, [openForm]);
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative ">
       <DonateForm esewaQr={esewaQr} openForm={openForm} setOpenForm={setOpenForm}/>
       <button
         onClick={() => navigate("/donate")}
@@ -47,8 +47,8 @@ const DonateDetail = () => {
         Go Back
       </button>
       <header>
-        <div className="bg-gray-200 sm:h-70 h-50 md:h-114 flex flex-col items-center  justify-center">
-          <div className="w-full text-center">
+        <div className="bg-gray-200 2xl:h-[400px] md:h-[250px] h-[225px] flex flex-col items-center  justify-center">
+          <div className="w-full text-center 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
             <h1 className="lg:text-4xl sm:text-2xl text-lg font-medium">
               VERIFIED VICTIMS DETAILS
             </h1>
@@ -58,7 +58,7 @@ const DonateDetail = () => {
           </div>
         </div>
       </header>
-      <div className="flex flex-col sm:flex-row lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5  gap-2 justify-center items-center sm:items-start p-2">
+      <div className="flex flex-col sm:flex-row 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5  gap-2 justify-center items-center sm:items-start p-2">
         <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-4 lg:gap-8 gap-2">
           <div className="flex flex-col h-full gap-3">
             <div className="relative w-full rounded-lg">
@@ -106,10 +106,11 @@ const DonateDetail = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-center my-4 md:my-8 w-full">
+        <div className="flex justify-center my-4 md:my-8 w-full">
         <Button onClick={()=>setOpenForm(true)} text={'Donate'}/>
       </div>
+      </div>
+      
     </div>
   );
 };
