@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import data from "../data/cases";
+import Button from "../components/Button";
+import { useState,useEffect } from "react";
+import DonateForm from "../components/donationComponents/DonateForm";
+
 const DonateDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const item = data.find((d) => d.id === Number(id)); // convert id to number
-
+  const [openForm, setOpenForm] = useState(false);
   const victimTitle = item.title;
   const victimName = victimTitle.slice(11);
   const victimImagePath = item.image;
@@ -16,20 +20,34 @@ const DonateDetail = () => {
   const victimProgressPercentage = Math.floor(
     100 * (victimRaisedAmount / victimAmountGoal)
   );
-
+  const esewaQr=item.esewa;
   if (!item) {
     return <h1>Not Found</h1>;
   }
+  useEffect(() => {
+  if (openForm) {
+    document.body.style.overflow = "hidden";   // stop scrolling
+  } else {
+    document.body.style.overflow = "auto";     // enable scrolling again
+  }
+
+  // cleanup when component unmounts
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [openForm]);
+
   return (
-    <div className="p-4 w-full min-w-[318px]">
+    <div className="w-full relative">
+      <DonateForm esewaQr={esewaQr} openForm={openForm} setOpenForm={setOpenForm}/>
       <button
         onClick={() => navigate("/donate")}
-        className="hover:cursor-pointer text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white bg-[#DC241F]"
+        className="hover:cursor-pointer absolute top-2 left-2 text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white bg-[#DC241F]"
       >
         Go Back
       </button>
       <header>
-        <div className="bg-gray-200 sm:h-90 h-80 md:h-114 flex flex-col items-center  justify-center min-w-[318px]">
+        <div className="bg-gray-200 sm:h-70 h-50 md:h-114 flex flex-col items-center  justify-center">
           <div className="w-full text-center">
             <h1 className="lg:text-4xl sm:text-2xl text-lg font-medium">
               VERIFIED VICTIMS DETAILS
@@ -40,94 +58,57 @@ const DonateDetail = () => {
           </div>
         </div>
       </header>
-      <div className="flex flex-col sm:flex-row bg-gray-200 gap-2 justify-center items-center sm:items-start p-2">
-        <div className="flex flex-col gap-2 md:gap-3 p-2 w-1/2">
-          <div>
-            {/* <h1 className="text-2xl font-bold mt-4">{item.title}</h1> */}
+      <div className="flex flex-col sm:flex-row lg:px-12 lg:py-15 sm:px-8 sm:py-10 px-3 py-5  gap-2 justify-center items-center sm:items-start p-2">
+        <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-4 lg:gap-8 gap-2">
+          <div className="flex flex-col h-full gap-3">
+            <div className="relative w-full rounded-lg">
+              <div className='absolute top-2 right-2'>
+
+              <Button onClick={()=>setOpenForm(true)} text={'Donate'}/>
+              </div>
             <img
               src={item.image}
               alt={item.title}
-              className="w-full  mt-4 rounded-lg object-cover"
+              className="w-full rounded-lg object-cover aspect-video md:aspect-auto"
             />
-          </div>
-
-          <div className="flex flex-col gap-1">
-            {/*  Goal and status */}
-            <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
-              <p className="text-[#7D7C7C] text-xs">Goal: {victimAmountGoal}</p>
-              <p className="text-[#c41919] text-sm sm:text-xl md:text-2xl font-bold">{`${victimStatus}!`}</p>
             </div>
-            {/* Progress Bar */}
-            <div className="md:h-[15px] h-[10px] relative w-full rounded-[15px] bg-[#D9D9D9] overflow-hidden">
-              <div
-                className="md:h-[15px] h-[10px] absolute left-0 top-0 rounded-[15px] bg-gradient-to-r from-[#022D73CC] to-[#6196EB66]"
-                style={{ width: `${victimProgressPercentage}%` }}
-              ></div>
-            </div>
-            {/*  Raised */}
-            <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
-              <p className="text-black text-xs font-bold">
-                Raised: {victimAmountGoal}
-              </p>
+            <div className="flex flex-col gap-1">
+              {/*  Goal and status */}
+              <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
+                <p className="text-[#7D7C7C] text-xs">
+                  Goal: {victimAmountGoal}
+                </p>
+                <p className="text-[#c41919] text-sm sm:text-xl md:text-2xl font-bold">{`${victimStatus}!`}</p>
+              </div>
+              {/* Progress Bar */}
+              <div className="md:h-[15px] h-[10px] relative w-full rounded-[15px] bg-[#D9D9D9] overflow-hidden">
+                <div
+                  className="md:h-[15px] h-[10px] absolute left-0 top-0 rounded-[15px] bg-gradient-to-r from-[#022D73CC] to-[#6196EB66]"
+                  style={{ width: `${victimProgressPercentage}%` }}
+                ></div>
+              </div>
+              {/*  Raised */}
+              <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
+                <p className="text-black text-xs font-bold">
+                  Raised: {victimAmountGoal}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col p-2 w-1/2">
-          <div className="flex items-center justify-center text-left">
-            <p className="w-1/2">Name:{victimName}</p>
-            <p className="w-1/2">Age:18</p>{" "}
-            {/*fetch from backend and display here*/}
-          </div>
-          <div className="text-balance overflow-scroll md:overflow-hidden  h-[300px] sm:h-full ">
-            <p>{victimDescription}</p>
+          <div className="flex flex-col sm:gap-6 md:gap-8 gap-3 h-full">
+            <div className="flex items-center justify-between text-left text-2xl">
+              <p className="font-bold">Name:{victimName}</p>
+              <p className="font-medium">Age:18</p>{" "}
+              {/*fetch from backend and display here*/}
+            </div>
+            <div className="text-lg flex sm:h-[220px] h-[200px] md:h-[280px] lg:h-[350px] xl:h-[380px]  overflow-auto ">
+              <p>{victimDescription}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div id="qr_part" className="w-full flex gap-2 p-1 mb-4">
-        <div className="flex flex-col gap-2 w-1/4">
-          <div className="bg-amber-300 h-[80px] sm:h-[90px] md:h-[200px]  text-center flex justify-center items-center">
-             QR
-          </div>
-          <div className="flex justify-center items-center">
-            <img
-              src="/../src/assets/Khalti_logo.png"
-              alt="Khalti_logo"
-              className="object-cover w-[90px] sm:w-[110px] md:w-[150px] bg-transparent border-none"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col gap-2 w-1/4">
-          <div className="bg-amber-300 h-[80px] sm:h-[90px] md:h-[200px]  text-center flex justify-center items-center">
-            QR
-          </div>
-          <img
-            src="/../src/assets/logo_connectIPS.png"
-            alt="ConnectIPS_logo"
-            className="object-cover w-[90px] sm:w-[110px] md:w-[150px] bg-transparent border-none"
-          />
-        </div>
-        <div className="flex flex-col gap-2 w-1/4">
-          <div className="bg-amber-300 h-[80px] sm:h-[90px] md:h-[200px]  text-center flex justify-center items-center">
-            QR
-          </div>
-          <img
-            src="/../src/assets/esewa-logo.png"
-            alt="esewa_logo"
-            className="object-cover w-[90px] sm:w-[110px] md:w-[150px] bg-transparent border-none"
-          />
-        </div>
-        <div className="flex flex-col gap-2 w-1/4">
-          <div className="bg-amber-300 h-[80px] sm:h-[90px] md:h-[200px]  text-center flex justify-center items-center">
-            QR
-          </div>
-          <div className="flex h-auto justify-center items-center">
-            <img
-              src="/../src/assets/Nepal_Rastra_Bank_Logo.jpeg"
-              alt="NRB_logo"
-              className="object-cover w-[80px] sm:w-[90px] md:w-[100px] bg-transparent border-none"
-            />
-          </div>
-        </div>
+      <div className="flex justify-center my-4 md:my-8 w-full">
+        <Button onClick={()=>setOpenForm(true)} text={'Donate'}/>
       </div>
     </div>
   );
