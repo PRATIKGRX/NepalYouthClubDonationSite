@@ -25,7 +25,7 @@ const FeatureCard = ({
           <div className="flex justify-between items-center">
             <p className="md:text-[24px] text-[16px] font-medium">{victimName}</p>
           </div>
-          <p className="text-[#878383] font-medium text-[11px] md:text-[20px]">{victimDescription}</p>
+          <p className="text-[#878383] font-medium text-[11px] md:text-[20px] h-[70px] sm:h-[150px] md:h-[180px] overflow-auto">{victimDescription}</p>
         </div>
 
         <div>
