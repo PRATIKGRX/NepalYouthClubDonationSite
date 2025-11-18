@@ -12,7 +12,7 @@ const Contact = () => {
         <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-semibold mb-6">Get in Touch with Us</p>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
           <div className=" border border-[#FF201A] rounded-[5px] px-4 py-4 sm:px-8 sm:py-4 flex flex-col gap-5 text-sm md:text-md">
-            <p className="lg:text-[32px] sm:text-[18px] text-[16px] font-medium">Message Us</p>
+            <p className="xl:text-2xl 2xl:text-3xl lg:text-xl sm:text-lg font-medium">Message Us</p>
             <input
               type="text"
               placeholder="Name"
@@ -36,37 +36,50 @@ const Contact = () => {
             </div>
           </div>
           <div className="h-full p-8 py-10 relative bg-blue-500/10 z-5 lg:block hidden">
-            <div className="absolute inset-0 opacity-20 z-0 w-[80%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center">
+            <div className="absolute inset-0 opacity-20 z-0 h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full ">
               <img
               src="tabicon.png"
               alt="nepalyouth club logo"
-              className="w-full"
+              className="h-full aspect-square"
             />
             </div>
             <div className="realtive z-10 h-full flex flex-col justify-between">
-              <p className="md:text-[32px] text-lg font-medium">
+              <p className="xl:text-2xl 2xl:text-3xl lg:text-xl sm:text-lg text-lg font-medium">
                 Other ways to Connect
               </p>
               <div className="flex flex-col justify-between gap-20">
                 <div className="flex flex-col gap-10 text-[20px] px-10 relative ">
-                  <p className="flex gap-8 items-center">
+                  <a href="mailto:info@nepalyouthclub.com" className="flex gap-8 items-center">
                     <IoMail className="text-white text-3xl bg-[#DC241F] p-1 rounded-full" />
                     info@nepalyouthclub.com
-                  </p>
-                  <p className="flex gap-8 items-center">
+                  </a>
+                  <a href="tel:+9779768921929" className="flex gap-8 items-center">
                     <IoMdCall className="text-white text-3xl bg-[#DC241F] p-1 rounded-full" />
                     +977-9768921929
-                  </p>
-                  <p className="flex gap-8 items-center">
+                  </a>
+                  <a href="https://maps.google.com?q=Kausaltar"
+                    target="_blank"
+                    rel="noopener noreferrer" className="flex gap-8 items-center">
                     <FaLocationDot className="text-white text-3xl bg-[#DC241F] p-1 rounded-full" />
                     Kausaltar (Floor above Nepal Bank)
-                  </p>
+                  </a>
                 </div>
                 <div className="text-4xl flex justify-center gap-6 relative">
+                  <a href="https://facebook.com/nepalyouthclub/"
+                  aria-label="Facebook">
+
                   <FaFacebook className="fill-[#2A5EAD]" />
+                  </a>
+                  <a href="https://www.instagram.com/nepalyouthclub/"
+                  aria-label="Instagram">
+
                   <IoLogoInstagram className="text-white text-2xl bg-[#2A5EAD] h-9  w-9 px-2 rounded-full" />
+                  </a>
+                  <a href="https://tiktok.com/nepalyouthclub/"
+                  aria-label="TikTok">
 
                   <FaTiktok className="text-white text-2xl bg-[#2A5EAD] h-9  w-9 px-2 rounded-full" />
+                  </a>
                   <FaXTwitter className="text-white text-2xl bg-[#2A5EAD] h-9  w-9 px-2 rounded-full" />
                 </div>
               </div>

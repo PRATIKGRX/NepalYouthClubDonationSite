@@ -2,7 +2,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 
 const tabStyle =
-  "px-4 py-2 text-xs bg-zinc-100 lg:text-[20px] rounded-sm hover:bg-zinc-200 hover:cursor-pointer text-black transition-all data-[state=active]:bg-[#DC241F] data-[state=active]:text-white";
+  "2xl:px-4 2xl:py-2 px-3 py-1 2xl:text-xl xl:text-lg text-sm bg-zinc-100  rounded-sm hover:bg-zinc-200 hover:cursor-pointer text-black transition-all data-[state=active]:bg-[#DC241F] data-[state=active]:text-white";
 
 // helper to create safe tab values
 const slug = (s) =>
@@ -27,9 +27,9 @@ const images = [
     {
       title: "All",
       content: (
-        <div className="columns-2 md:columns-3 gap-2">
+        <div className="columns-2 md:columns-3 2xl:gap-4 md:gap-3 gap-2">
           {images.map((imgsrc,idx)=>(
-            <img key={idx} src={imgsrc} alt="" className="mb-2"/>
+            <img key={idx} src={imgsrc} alt="" className="2xl:mb-4 md:mb-3 mb-2 w-full"/>
           ))}
           
         </div>
@@ -39,7 +39,7 @@ const images = [
       title: "Events",
       content: (
         <div className="columns-2 md:columns-3 gap-2">
-          {/* 🖼️ Add event images or descriptions */}
+          {/*  Add event images or descriptions */}
           <p className="text-center text-zinc-500">Event-related images go here.</p>
         </div>
       ),
@@ -92,7 +92,7 @@ const images = [
       className="w-full flex flex-col gap-6"
     >
       {/* --- Tab Buttons --- */}
-      <Tabs.List className="flex gap-2 lg:gap-6 text-xs lg:text-sm flex-wrap">
+      <Tabs.List className="flex gap-2 lg:gap-6  flex-wrap">
         {tabData.map((tab) => (
           <Tabs.Trigger key={tab.title} value={slug(tab.title)} className={tabStyle}>
             {tab.title}

@@ -115,7 +115,7 @@ const TeamSection = () => {
             {teamMembers.map((member, i) => (
               <div
                 key={i}
-                className="lg:flex-[0_0_25%] flex-[0_0_33.33%]  px-3"
+                className="lg:flex-[0_0_25%] xl:flex-[0_0_20%] flex-[0_0_33.33%]  px-3"
                 onMouseEnter={stopAutoplay}
                 onMouseLeave={startAutoplay}
               >
