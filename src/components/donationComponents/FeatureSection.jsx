@@ -128,7 +128,7 @@ const FeatureSection = () => {
         {canScrollPrev && (
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 text-black bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full shadow-md z-10"
+            className="absolute 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:left-[-15px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl left-0 top-1/2 -translate-y-1/2 text-black bg-white  flex items-center justify-center rounded-full  shadow-md z-10"
           >
             <FaAngleLeft />
           </button>
@@ -136,7 +136,7 @@ const FeatureSection = () => {
         {canScrollNext && (
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-black bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full shadow-md z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-black bg-white 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:right-[-15px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl flex items-center justify-center rounded-full shadow-md z-10"
           >
             <FaAngleRight />
           </button>

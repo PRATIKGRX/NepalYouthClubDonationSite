@@ -5,12 +5,12 @@ const Donate = () => {
   return (
     <>
       <header>
-        <div className="bg-gray-200 xl:h-[700px] 2xl:h-[800px] md:h-[500px] h-[450px] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col items-center justify-center">
+        <div className="bg-gray-200 xl:h-[400px] 2xl:h-[600px] md:h-[340px] h-[300px] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col items-center justify-center">
           <div className="w-full text-center">
-            <h1 className="lg:text-4xl sm:text-2xl text-lg font-medium">
+            <h1 className="xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px] font-medium">
               DIRECT DONATION: VERIFIED VICTIMS IN NEED
             </h1>
-            <h6 className="mt-4 lg:text-3xl sm:text-lg text-md  text-gray-500">
+            <h6 className="mt-4 xl:text-[26px] 2xl:text-[34px] md:text-[20px] text-[12px]  text-gray-500">
               100% of your donation goes directly to the victims
             </h6>
             <div className="relative xl:w-[70%] md:w-[80%] w-[90%] md:mt-8 mt-4 mx-auto">
@@ -28,12 +28,12 @@ const Donate = () => {
       </header>
       <main>
         <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col gap-8">
-          <p className="md:text-[36px] text-[24px] font-medium">FEATURED URGENT CASE</p>
+          <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-medium">FEATURED URGENT CASE</p>
           <FeatureSection/>
           
         </section>
         <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col gap-8">
-          <p className="md:text-[36px] text-[24px] font-medium">ADDITIONAL CASES</p>
+          <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-medium">ADDITIONAL CASES</p>
           <div>
             <AdditionalCaseSection/>
           </div>

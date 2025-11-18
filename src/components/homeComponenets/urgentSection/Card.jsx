@@ -67,7 +67,7 @@ const Card = ({ id, title, image, raised, goal, desc }) => {
           <p className="2xl:text-2xl sm:text-xl text-xs font-semibold">
             {formatNumber(raised)} raised
           </p>
-          <p className="sm:text-xl text-xs font-semibold">
+          <p className="2xl:text-2xl sm:text-xl text-xs font-semibold">
             Goal: {formatNumber(goal)}
           </p>
         </div>

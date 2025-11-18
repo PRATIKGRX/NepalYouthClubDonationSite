@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import data from "../data/cases";
 import Button from "../components/Button";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import DonateForm from "../components/donationComponents/DonateForm";
 
 const DonateDetail = () => {
@@ -20,26 +20,30 @@ const DonateDetail = () => {
   const victimProgressPercentage = Math.floor(
     100 * (victimRaisedAmount / victimAmountGoal)
   );
-  const esewaQr=item.esewa;
+  const esewaQr = item.esewa;
   if (!item) {
     return <h1>Not Found</h1>;
   }
   useEffect(() => {
-  if (openForm) {
-    document.body.style.overflow = "hidden";   // stop scrolling
-  } else {
-    document.body.style.overflow = "auto";     // enable scrolling again
-  }
+    if (openForm) {
+      document.body.style.overflow = "hidden"; // stop scrolling
+    } else {
+      document.body.style.overflow = "auto"; // enable scrolling again
+    }
 
-  // cleanup when component unmounts
-  return () => {
-    document.body.style.overflow = "auto";
-  };
-}, [openForm]);
+    // cleanup when component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [openForm]);
 
   return (
     <div className="w-full relative ">
-      <DonateForm esewaQr={esewaQr} openForm={openForm} setOpenForm={setOpenForm}/>
+      <DonateForm
+        esewaQr={esewaQr}
+        openForm={openForm}
+        setOpenForm={setOpenForm}
+      />
       <button
         onClick={() => navigate("/donate")}
         className="hover:cursor-pointer absolute top-2 left-2 text-[12px] md:text-[16px] px-3 py-2 rounded-[5px] text-white bg-[#DC241F]"
@@ -58,26 +62,25 @@ const DonateDetail = () => {
           </div>
         </div>
       </header>
-      <div className="flex flex-col sm:flex-row 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5  gap-2 justify-center items-center sm:items-start p-2">
+      <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+
+      <div className="flex flex-col sm:flex-row   gap-2 justify-center items-center sm:items-start p-2">
         <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-4 lg:gap-8 gap-2">
           <div className="flex flex-col h-full gap-3">
             <div className="relative w-full rounded-lg">
-              <div className='absolute top-2 right-2'>
-
-              <Button onClick={()=>setOpenForm(true)} text={'Donate'}/>
+              <div className="absolute top-2 right-2">
+                <Button onClick={() => setOpenForm(true)} text={"Donate"} />
               </div>
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full rounded-lg object-cover aspect-video md:aspect-auto"
-            />
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full rounded-lg object-cover aspect-video md:aspect-auto"
+              />
             </div>
             <div className="flex flex-col gap-1">
               {/*  Goal and status */}
-              <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
-                <p className="text-[#7D7C7C] text-xs">
-                  Goal: {victimAmountGoal}
-                </p>
+              <div className="text-medium md:text-base text-[10px] ">
+                
                 <p className="text-[#c41919] text-sm sm:text-xl md:text-2xl font-bold">{`${victimStatus}!`}</p>
               </div>
               {/* Progress Bar */}
@@ -88,9 +91,12 @@ const DonateDetail = () => {
                 ></div>
               </div>
               {/*  Raised */}
-              <div className="text-medium md:text-base text-[10px] flex justify-between items-center">
-                <p className="text-black text-xs font-bold">
+              <div className="text-medium 2xl:text-2xl sm:text-base text-[10px] flex justify-between items-center">
+                <p className="text-black  font-bold">
                   Raised: {victimAmountGoal}
+                </p>
+                <p className="text-[#3f3f3f] ">
+                  Goal: {victimAmountGoal}
                 </p>
               </div>
             </div>
@@ -106,11 +112,11 @@ const DonateDetail = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center my-4 md:my-8 w-full">
-        <Button onClick={()=>setOpenForm(true)} text={'Donate'}/>
       </div>
+      <div className="flex justify-center my-4 md:my-8 w-full">
+        <Button onClick={() => setOpenForm(true)} text={"Donate"} />
       </div>
-      
+      </section>
     </div>
   );
 };
