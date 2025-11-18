@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Button from "../../Button";
 import data from "../../../data/cases";
-
+import SmallCard from "./SmallCard";
 const UrgentCases = () => {
   const [displayCount, setDisplayCount] = useState(5);
 
@@ -47,16 +47,16 @@ const UrgentCases = () => {
               raised={featured.raised}
               goal={featured.goal}
               donors={featured.donors}
-              large
+              
             />
           </div>
         )}
 
         {/* Other small cards */}
-        <div className="relative max-h-[300px] overflow-hidden lg:max-h-full">
+        <div className="relative ">
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {others.map((item) => (
-              <Card key={item.id} {...item} />
+              <SmallCard key={item.id} {...item} />
             ))}
           </div>
         </div>

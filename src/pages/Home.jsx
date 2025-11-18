@@ -75,7 +75,7 @@ const Home = () => {
                 <img
                   src="https://i.pinimg.com/1200x/c7/36/f8/c736f83436d84ddc039fe42de40c8ec7.jpg"
                   alt=""
-                  className="h-[260px] w-full md:hidden"
+                  className="w-full h-full aspect-[16/9]  md:hidden"
                 />
               </div>
               <div className="text-center">
@@ -89,7 +89,7 @@ const Home = () => {
               <img
                 src="https://i.pinimg.com/1200x/c7/36/f8/c736f83436d84ddc039fe42de40c8ec7.jpg"
                 alt=""
-                className="h-[260px] w-full hidden md:block"
+                className="w-full h-full aspect-[16/9]  hidden md:block"
               />
             </div>
           </div>

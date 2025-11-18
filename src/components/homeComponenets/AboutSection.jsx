@@ -26,7 +26,7 @@ export const AboutSection = () => {
             <img
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=614&h=330&fit=crop"
               alt="Nepal Youth Club Activities"
-              className="rounded-[5px]  object-cover w-full aspect-[4/3] sm:aspect-[16/9] lg:h-[330px]"
+              className="rounded-[5px]  object-cover w-full h-full aspect-[16/9]"
             />
           </div>
         </div>

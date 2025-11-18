@@ -129,7 +129,7 @@ const navigate=useNavigate();
                 <img
                   src={src}
                   alt={`Slide ${i}`}
-                  className="w-full h-[80px] xl:h-[190px] object-cover rounded-lg shadow-md"
+                  className="w-full h-full aspect-[16/9] object-cover rounded-lg shadow-md"
                 />
               </div>
             ))}
