@@ -106,7 +106,7 @@ const TeamSection = () => {
 
   return (
     <div className="select-none">
-      <p className="text-[36px] font-medium mb-6">MEET OUR TEAM</p>
+      <p className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-medium mb-3 md:mb-6">MEET OUR TEAM</p>
 
       <div className="relative">
         {/* Viewport */}
@@ -115,7 +115,7 @@ const TeamSection = () => {
             {teamMembers.map((member, i) => (
               <div
                 key={i}
-                className="flex-[0_0_25%] px-3"
+                className="lg:flex-[0_0_25%] xl:flex-[0_0_20%] flex-[0_0_33.33%]  px-3"
                 onMouseEnter={stopAutoplay}
                 onMouseLeave={startAutoplay}
               >
@@ -133,7 +133,7 @@ const TeamSection = () => {
         {canScrollPrev && (
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 text-black bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full shadow-md z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 text-black bg-white 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:left-[-15px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl flex items-center justify-center rounded-full shadow-md z-10"
           >
             <FaAngleLeft />
           </button>
@@ -141,7 +141,7 @@ const TeamSection = () => {
         {canScrollNext && (
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-black bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full shadow-md z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-black bg-white 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:right-[-15px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl flex items-center justify-center rounded-full shadow-md z-10"
           >
             <FaAngleRight />
           </button>
@@ -154,7 +154,7 @@ const TeamSection = () => {
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[12px] h-[12px] rounded-full transition-all duration-300 ${
+            className={`md:w-[12px] md:h-[12px] w-[9px] h-[9px] rounded-full transition-all duration-300 ${
               i === selectedIndex ? "bg-black" : "bg-gray-300"
             }`}
           ></button>

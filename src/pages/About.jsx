@@ -1,59 +1,58 @@
 import Card from "../components/aboutComponents/Card";
 import Button from "../components/Button";
 import TeamSection from "../components/aboutComponents/TeamSection";
+import { useNavigate } from "react-router-dom";
 const About = () => {
+  const navigate = useNavigate();
   return (
     <>
       <header>
-        <div className="bg-[#D9D9D9] h-[300px]"></div>
-        <div className="grid grid-cols-[1fr_3fr] px-12 py-15">
-          <p className="font-medium text-[36px] text-[#003893]">WHO WE ARE</p>
-          <p className="text-[16px] font-light px-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
-            ab iste sed veritatis porro similique quas. Deserunt a nostrum ipsa
-            perspiciatis quod nisi, tenetur iste esse fugiat quasi, maiores
-            autem? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Beatae, rem fuga repudiandae porro ex, provident praesentium unde
-            officiis molestias possimus assumenda. Facere architecto aliquid
-            perspiciatis ipsa magnam, ipsum officia vel.
+        <div className="bg-[#D9D9D9] 2xl:h-[400px] md:h-[250px] h-[225px] justify-center flex items-center ">
+          <h3 className="xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] font-bold ">About US</h3>
+        </div>
+        <div className="grid xl:grid-cols-[1fr_3fr] md:grid-cols-1 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+          <p className="font-medium xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg text-[#003893]">
+            WHO WE ARE
+          </p>
+          <p className="md:text-[16px] text-[12px] font-light xl:px-6 px-2">
+            Nepal Youth Club is a volunteer-run organization that organizes
+            trainings, youth advocacy campaigns, internships, community
+            projects, and mental health counseling. From social media campaigns
+            and environmental cleanups to leadership workshops and peer
+            counseling, our team of young volunteers, seasoned mentors, and
+            local partners creates programs that blend professional development
+            with practical community service. In order to place interns, conduct
+            awareness campaigns, and establish safe spaces for young people to
+            exchange ideas and organize for positive civic engagement, we
+            collaborate with nearby NGOs, universities, and government agencies.
           </p>
         </div>
       </header>
-      <section className="px-12 py-15 flex flex-col gap-20">
-        <div className="grid grid-cols-3 gap-4">
+      <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col md:gap-10 gap-6 xl:gap-20">
+        <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-4 gap-8">
           <Card
             title={"MISSION"}
-            description={`Lorem Ipsum is simply
-dummy text of the printing
-and typesetting industry.
-Lorem Ipsum has been the
-industry's standard dummy
-text ever since the 1500s,`}
+            description={`Our mission is to enable Nepal's youth to become capable, self-assured, and caring leaders who can improve their own and their communities' futures. Through education, skill development, mental health awareness, and civic engagement, Nepal Youth Club aims to give young people the opportunity to learn, lead, and make a lasting impact. We work to dismantle barriers to inequality and give all young people, regardless of background, the same chance to realize their potential and make a positive impact on a fair, sustainable, and prosperous Nepal.`}
           />
           <Card
             title={"VISION"}
-            description={`Lorem Ipsum is simply
-dummy text of the printing
-and typesetting industry.
-Lorem Ipsum has been the
-industry's standard dummy
-text ever since the 1500s,`}
+            description={`We envision a nation where all young people have the opportunity, knowledge, and bravery to make their dreams come true. Our goal is to create an innovative, compassionate, and honest Nepal where young people take charge of resolving issues in their communities, respect democratic principles, and work together to create a just and inclusive society. Using creativity, digital fluency, and social responsibility as tools to inspire the world and uplift the country, we want to raise a generation that not only adapts to change but also creates it.`}
           />
           <Card
-            title={"Add here"}
-            description={`Lorem Ipsum is simply
-dummy text of the printing
-and typesetting industry.
-Lorem Ipsum has been the
-industry's standard dummy
-text ever since the 1500s,`}
+            title={"Core Values"}
+            description={`At the heart of Nepal Youth Club lies a deep belief in the power of youth to create positive change.  Our guiding principle is inclusion, making sure that every young voice, no matter how tiny, is respected and heard. Our actions are defined by our integrity; in all of our programs, we encourage openness, truthfulness, and responsibility. We view service as a lifetime dedication to fostering community and nation-building, motivating young people to take on leadership roles with compassion and understanding. Our movement is fueled by courage, the courage to speak out against injustice, to stand up for what is right, and to have big dreams. Above all, we promote a culture of lifelong learning, fostering inquisitiveness, inventiveness, and fortitude to enable Nepal's youth to prosper in a world that is constantly changing.`}
           />
         </div>
         <div className="flex justify-center">
-          <Button text={"JOIN OUR MISSION"} />
+          <Button
+            text={"JOIN OUR MISSION"}
+            onClick={() => {
+              navigate("/contact");
+            }}
+          />
         </div>
       </section>
-      <section className="bg-[#F5F5F5] px-12 py-20 flex flex-col gap-12">
+      <section className="bg-[#F5F5F5] 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5 flex flex-col gap-12">
         <TeamSection />
       </section>
     </>

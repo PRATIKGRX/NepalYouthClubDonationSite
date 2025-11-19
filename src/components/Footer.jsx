@@ -11,9 +11,9 @@ import { AiOutlineTikTok } from "react-icons/ai";
 const Footer = () => {
   return (
     <footer className="bg-[#003893]">
-      <div className="sm:grid sm:grid-cols-6 flex flex-col text-white xl:p-16 p-6 w-full">
+      <div className="sm:grid sm:grid-cols-2 flex flex-col text-white xl:p-16 p-6 w-full">
         {/* Left section */}
-        <div className="col-span-3 ">
+        <div className=" ">
           {" "}
           <div className="flex xl:gap-6 gap-2 ">
             <div className="xl:h-[70px] xl:w-[70px] md:h-[50px] md:w-[50px] md:block hidden">
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
 
         {/* Right section */}
-        <div className="col-span-3 md:grid md:grid-cols-2 flex">
+        <div className=" h-full flex justify-between items-center">
           {/* Quick Links */}
           <div className="md:flex flex-col xl:items-center items-start text-[18px] gap-6 hidden ms-4 xl:ms-0">
             <div className="font-medium">Quick Links</div>
@@ -138,9 +138,9 @@ const Footer = () => {
           </div>
 
           {/* Social Section */}
-          <div className="flex flex-col py-4 justify-between md:items-center md:gap-2 gap-8 col-auto  ">
-            <div className="flex flex-col xl:items-center gap-3">
-              <div className="font-medium xl:text-[18px] text-[16px] text-[#8B929D] xl:text-white">
+          <div className="h-full  py-4 md:items-center md:gap-2 gap-8 col-auto  ">
+            <div className="flex flex-col h-full justify-between sm:items-center gap-3">
+              <div className="font-medium xl:text-[18px] text-[16px] text-[#8B929D] sm:text-white">
                 Connect with us
               </div>
               <div className="flex gap-3 items-center text-[24px]">
@@ -171,14 +171,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="xl:text-[15px] text-[10px] text-center flex xl:flex-col gap-2">
-              <p>
-                <a href="#">Terms and Conditions</a>
-              </p>
-              <p>
-                <a href="#">Privacy Policy</a>
-              </p>
-            </div>
+            
           </div>
         </div>
       </div>

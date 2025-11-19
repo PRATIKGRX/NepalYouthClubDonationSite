@@ -3,18 +3,23 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Documentation from "./pages/Documentation";
+import Login from "./pages/Login";
 import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import DonateDetail from "./pages/DonateDetail";
 
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    //  Scroll to top on route change
+    window.scrollTo(0, 0);
+
     setLoading(true);
     const startTime = Date.now();
 
@@ -38,12 +43,15 @@ const App = () => {
       {loading && <Loader />}
       <Navbar />
       <Routes>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/documentation" element={<Documentation />} />
-        <Route path="/donate" element={<Donate/>}/>
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/donate/:id" element={<DonateDetail />} />
+        
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
       <Footer />

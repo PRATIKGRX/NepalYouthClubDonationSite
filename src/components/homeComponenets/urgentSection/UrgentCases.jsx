@@ -1,41 +1,71 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import Button from "../../Button";
-import data from "../../../data/urgentCases";
-
+import data from "../../../data/cases";
+import SmallCard from "./SmallCard";
 const UrgentCases = () => {
-  const featured = data[0];
-  const others = data.slice(1);
+  const [displayCount, setDisplayCount] = useState(5);
 
+  // Update display count based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setDisplayCount(3); // Mobile: show 3
+      } else {
+        setDisplayCount(5); // Desktop: show 5
+      }
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Filter urgent cases and slice according to displayCount
+  const urgentCases = data.filter((item) => item.status === "urgent").slice(0, displayCount);
+  const featured = urgentCases[0];
+  const others = urgentCases.slice(1);
+// xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg
+// 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5
   return (
-    <section className="py-10">
-      <h2 className="md:text-4xl text-[13px] leading-15 md:leading-20 tracking-normal font-semibold uppercase">
+    <section className="2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
+      <h2 className="xl:text-4xl 2xl:text-5xl lg:text-2xl sm:text-xl text-lg font-bold uppercase">
         Urgent Attention Needed
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:my-[50px]">
         {/* Featured card */}
-        <div className="relative">
-          <Card
-            title={featured.title}
-            desc={featured?.desc}
-            image={featured.image}
-            raised={featured.raised}
-            goal={featured.goal}
-            donors={featured.donors}
-            large
-          />
-        </div>
+        {featured && (
+          <div className="relative">
+            <Card
+            id={featured.id}
+              title={featured.title}
+              desc={featured?.desc}
+              image={featured.image}
+              raised={featured.raised}
+              goal={featured.goal}
+              donors={featured.donors}
+              
+            />
+          </div>
+        )}
 
         {/* Other small cards */}
-        <div className="relative grid grid-cols-2 gap-4 sm:gap-6">
-          {others.map((item) => (
-            <Card key={item.id} {...item} />
-          ))}
+        <div className="relative ">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            {others.map((item) => (
+              <SmallCard key={item.id} {...item} />
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="text-center">
-        <Button text="View All Cases" />
+        <Link to="/donate" className="inline-block ml-4">
+          <Button text="View all cases" />
+        </Link>
       </div>
     </section>
   );

@@ -8,12 +8,14 @@ import { FiInfo } from "react-icons/fi";
 import { MdOutlineFileCopy } from "react-icons/md";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+import { BiX } from "react-icons/bi";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -55,19 +57,18 @@ const Navbar = () => {
     <div className="xl:h-[65px] h-[45px] flex justify-between w-full items-center relative xl:px-10 px-6">
       <div className="flex items-center gap-3">
         <img
+          onClick={() => {
+            navigate("/");
+          }}
           src={logo}
           alt="Logo"
           className="h-[32px] w-[32px] xl:h-[65px] xl:w-[65px]"
         />
         {/* show title only on small screens */}
-        <h1 className="text-[15px] hidden md:block xl:hidden ">
-          Nepal Youth Club
-        </h1>
       </div>
-      <h2 className="md:hidden block my-auto sm:text-xl font-semibold">
+      <h1 className="text-[15px] xl:hidden block font-semibold">
         Nepal Youth Club
-      </h2>
-
+      </h1>
       {/* desktop links */}
       <ul className="xl:flex gap-6 items-center text-[20px] hidden">
         <NavLink
@@ -124,20 +125,19 @@ const Navbar = () => {
       </ul>
 
       {/* right side: mobile menu button + donate button */}
-      <div className="flex items-center gap-3">
+      <div className="flex  z-50 items-center gap-3 mr-4">
         <button
-          className="text-[24px] xl:hidden block"
+          className="absolute z-50 text-[24px] xl:hidden block"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen(true)}
         >
-          <LuMenu />
+          {menuOpen ? <BiX /> : <LuMenu />}
         </button>
-        <div className="hidden xl:block">
+        <div className="hidden xl:block ">
           <NavLink to={"/donate"}>
             <Button text={"Donate"} />
           </NavLink>
         </div>
-        {/* show Donate as small button on mobile too */}
       </div>
     </div>
   );
@@ -153,7 +153,7 @@ const Navbar = () => {
 
       {/* Fixed Navbar */}
       <nav
-        className={`xl:h-[94px] h-[45px] bg-white flex items-center 
+        className={`xl:h-[94px] h-[45px]  bg-white flex items-center 
           fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
           ${
             isFixed
@@ -168,7 +168,7 @@ const Navbar = () => {
       {/* Mobile menu (single instance) */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-[60] bg-white h-full w-1/2 p-4 pt-12 rounded-l-lg
+        className={`fixed top-0 right-0 z-40  bg-white h-full w-1/2 p-4 pt-12 rounded-l-lg
           transform transition-all duration-300 ease-in-out
           ${
             menuOpen
@@ -236,9 +236,22 @@ const Navbar = () => {
         </ul>
 
         <div className="mt-6">
-          <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
-            VOLUNTEER
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                navigate("/donate");
+                setMenuOpen(false);
+              }}
+              className="p-2 text-[10px] bg-[#DC241F] rounded-[3px] text-white mb-3"
+            >
+              DONATE
+            </button>
+          </div>
+          <div>
+            <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
+              VOLUNTEER
+            </button>
+          </div>
         </div>
       </div>
     </>

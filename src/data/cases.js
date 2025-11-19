@@ -1,0 +1,20 @@
+import person1 from "../assets/img/person1.jpg";
+import person2 from "../assets/img/person2.jpeg";
+import person3 from "../assets/img/person3.jpeg";
+import person4 from "../assets/img/person4.jpeg";
+import person5 from "../assets/img/person5.jpeg";
+import esewa from "../assets/img/esewa.jpeg";
+const people = [person1, person2, person3, person4, person5];
+
+const data = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 1,
+  title: `Support for Person ${i + 1}`,
+  image: people[i % people.length], // cycle through images
+  raised: Math.floor(Math.random() * 250001), // random raised amount between 0 and 250000
+  goal: 250000,
+  desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+  status: Math.random() < 0.3 ? "urgent" : "normal", 
+  esewa:esewa,
+}));
+
+export default data;

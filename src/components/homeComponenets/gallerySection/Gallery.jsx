@@ -12,6 +12,7 @@ import galleryimg8 from "../../../assets/galleryimg8.jpg";
 import galleryimg9 from "../../../assets/galleryimg9.jpg";
 import galleryimg10 from "../../../assets/galleryimg10.jpg";
 import Button from "../../Button";
+import { useNavigate } from "react-router-dom";
 const images = [
   galleryimg,
   galleryimg2,
@@ -32,7 +33,7 @@ export default function Gallery() {
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [dots, setDots] = useState([]);
   const autoplayRef = useRef();
-
+const navigate=useNavigate();
   // Scroll buttons
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -102,7 +103,7 @@ export default function Gallery() {
   }, [embla]);
 
   return (
-    <div className="select-none">
+    <div className="select-none 2xl:px-24 2xl:py-24 xl:px-15 xl:py-12 lg:px-12 lg:py-13 sm:px-8 sm:py-10 px-4 py-5">
       <div className="relative">
         {/* Viewport */}
         <div
@@ -123,12 +124,12 @@ export default function Gallery() {
             {images.map((src, i) => (
               <div
                 key={i}
-                className="flex-[0_0_33.333%] sm:flex-[0_0_33.333%] md:flex-[0_0_25%] lg:flex-[0_0_20%] px-2"
+                className="flex-[0_0_50%] sm:flex-[0_0_33.333%] md:flex-[0_0_25%] lg:flex-[0_0_20%] px-2"
               >
                 <img
                   src={src}
                   alt={`Slide ${i}`}
-                  className="w-full h-[80px] xl:h-[190px] object-cover rounded-lg shadow-md"
+                  className="w-full h-full aspect-[16/9] object-cover rounded-lg shadow-md"
                 />
               </div>
             ))}
@@ -139,7 +140,7 @@ export default function Gallery() {
         {canScrollPrev && (
           <button
             onClick={scrollPrev}
-            className="absolute left-[-6px] xl:left-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+            className="absolute left-[-6px] xl:left-[-24px] top-1/2 -translate-y-1/2 text-black bg-white 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:left-[-20px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
           >
             <FaAngleLeft />
           </button>
@@ -147,7 +148,7 @@ export default function Gallery() {
         {canScrollNext && (
           <button
             onClick={scrollNext}
-            className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white h-[30px] w-[30px] text-[10px] xl:h-[60px] xl:w-[60px] flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
+            className="absolute right-[-6px] xl:right-[-24px] top-1/2 -translate-y-1/2 text-black bg-white 2xl:h-[80px] 2xl:w-[80px] 2xl:text-2xl md:right-[-20px] h-[40px] md:h-[60px] md:w-[60px] w-[40px] md:text-xl flex items-center justify-center xl:text-[20px] rounded-full shadow-[4px_4px_5px_rgba(0,0,0,0.4)]"
           >
             <FaAngleRight />
           </button>
@@ -161,7 +162,7 @@ export default function Gallery() {
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`w-[20px] h-[20px] rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
+            className={`md:w-[12px] md:h-[12px] w-[9px] h-[9px] rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-black" : "bg-[#D9D9D9]"
               }`}
           ></button>
         ))}
@@ -169,7 +170,7 @@ export default function Gallery() {
 
       {/* View Full Gallery Button */}
       <div className="flex justify-center mb-10">
-        <Button text={"VIEW FULL GALLERY"} />
+        <Button text={"VIEW FULL GALLERY"} onClick={()=>navigate('gallery')} />
       </div>
     </div>
   );
