@@ -9,6 +9,7 @@ import { MdOutlineFileCopy } from "react-icons/md";
 import { LiaPhoneSquareSolid } from "react-icons/lia";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { BiX } from "react-icons/bi";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -124,15 +125,15 @@ const Navbar = () => {
       </ul>
 
       {/* right side: mobile menu button + donate button */}
-      <div className="flex items-center gap-3">
+      <div className="flex  z-50 items-center gap-3 mr-4">
         <button
-          className="text-[24px] xl:hidden block"
+          className="absolute z-50 text-[24px] xl:hidden block"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen(true)}
         >
-          <LuMenu />
+          {menuOpen ? <BiX /> : <LuMenu />}
         </button>
-        <div className="hidden xl:block">
+        <div className="hidden xl:block ">
           <NavLink to={"/donate"}>
             <Button text={"Donate"} />
           </NavLink>
@@ -152,7 +153,7 @@ const Navbar = () => {
 
       {/* Fixed Navbar */}
       <nav
-        className={`xl:h-[94px] h-[45px] bg-white flex items-center 
+        className={`xl:h-[94px] h-[45px]  bg-white flex items-center 
           fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ease-in-out
           ${
             isFixed
@@ -167,7 +168,7 @@ const Navbar = () => {
       {/* Mobile menu (single instance) */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-[60] bg-white p-4 rounded-l-lg
+        className={`fixed top-0 right-0 z-40  bg-white w-1/2 p-4 pt-12 rounded-l-lg
           transform transition-all duration-300 ease-in-out
           ${
             menuOpen
@@ -176,6 +177,12 @@ const Navbar = () => {
           }`}
         role="menu"
       >
+        <div
+          className="absolute top-2 right-4 items-center justify-between text-zinc-500 text-3xl mb-4"
+          onClick={() => setMenuOpen(false)}
+        >
+          <BiX />
+        </div>
         <ul className="flex flex-col gap-2">
           <NavLink
             to="/"
@@ -183,8 +190,8 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
           >
-            <div className="text-[12px] flex gap-2 items-center">
-              <SlHome className="text-[12px]" />
+            <div className="text-[16px] flex gap-2 items-center">
+              <SlHome className="text-[16px]" />
               Home
             </div>
           </NavLink>
@@ -194,8 +201,8 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
           >
-            <div className="text-[12px] flex gap-2 items-center">
-              <TbPhoto className="text-[12px]" />
+            <div className="text-[16px] flex gap-2 items-center">
+              <TbPhoto className="text-[16px]" />
               Gallery
             </div>
           </NavLink>
@@ -205,8 +212,8 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
           >
-            <div className="text-[12px] flex gap-2 items-center">
-              <FiInfo className="text-[12px]" />
+            <div className="text-[16px] flex gap-2 items-center">
+              <FiInfo className="text-[16px]" />
               About
             </div>
           </NavLink>
@@ -216,8 +223,8 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
           >
-            <div className="text-[12px] flex gap-2 items-center">
-              <MdOutlineFileCopy className="text-[12px]" />
+            <div className="text-[16px] flex gap-2 items-center">
+              <MdOutlineFileCopy className="text-[16px]" />
               Documentation
             </div>
           </NavLink>
@@ -227,8 +234,8 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => (isActive ? "text-[#DC241F]" : "")}
           >
-            <div className="text-[12px] flex gap-2 items-center">
-              <LiaPhoneSquareSolid className="text-[12px]" />
+            <div className="text-[16px] flex gap-2 items-center">
+              <LiaPhoneSquareSolid className="text-[16px]" />
               Contact Us
             </div>
           </NavLink>
@@ -237,19 +244,19 @@ const Navbar = () => {
         <div className="mt-6">
           <div>
             <button
-            onClick={() => {
-              navigate("/donate");
-              setMenuOpen(false); 
-            }}
-            className="p-2 text-[10px] bg-[#DC241F] rounded-[3px] text-white mb-3"
-          >
-            DONATE
-          </button>
+              onClick={() => {
+                navigate("/donate");
+                setMenuOpen(false);
+              }}
+              className="p-2 text-[16px] bg-[#DC241F] rounded-[3px] text-white mb-3"
+            >
+              DONATE
+            </button>
           </div>
           <div>
-            <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[10px] ">
-            VOLUNTEER
-          </button>
+            <button className="text-[#003893] border rounded-[3px] border-[#003893] p-2 text-[16px] ">
+              VOLUNTEER
+            </button>
           </div>
         </div>
       </div>

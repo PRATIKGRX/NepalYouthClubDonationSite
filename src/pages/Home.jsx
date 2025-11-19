@@ -7,13 +7,13 @@ import AboutSection from "../components/homeComponenets/AboutSection";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const threeCards = [
     { id: 1, title: "100% Direct Transfer", icon: <RiMoneyDollarCircleFill /> },
     { id: 2, title: "Verified Cases", icon: <MdVerifiedUser /> },
     { id: 3, title: "Non-Profit initiative", icon: <MdHandshake /> },
   ];
-  // xl:h-[700px] 2xl:h-[800px] md:h-[500px] h-[450px] 
+  // xl:h-[700px] 2xl:h-[800px] md:h-[500px] h-[450px]
   // xl:text-[70px] 2xl:text-[90px] md:text-[40px] text-[32px] main head text
   // xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px]
   return (
@@ -25,9 +25,11 @@ const Home = () => {
               Together for a Better <br />
               Tomorrow
             </h2>
-            <p className="xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px]">Empowering Youths. Suporting lives.</p>
+            <p className="xl:text-[36px] 2xl:text-[42px] md:text-[24px] text-[18px]">
+              Empowering Youths. Suporting lives.
+            </p>
             <div className="flex items-center gap-4 justify-center text-[22px] mt-4">
-              <Button text={"DONATE NOW"} onClick={()=>navigate('/donate')}/>
+              <Button text={"DONATE NOW"} onClick={() => navigate("/donate")} />
               <button className="px-3 py-2 md:px-[15px] md:py-[12px] rounded-[5px] md:text-[22px] text-[10px]  text-[#003893] border-[#003893] bg-white border hidden md:block">
                 VOLUNTEER
               </button>
@@ -78,10 +80,11 @@ const Home = () => {
                   className="w-full h-full aspect-[16/9]  md:hidden"
                 />
               </div>
-              <div className="text-center">
+              <div className="text-center flex justify-center">
                 <Button
                   text={"View Full Documentation"}
-                  className="text-[10px] px-8 py-5" onClick={()=>navigate('/documentation')}
+                  className="text-[10px] px-8 py-5"
+                  onClick={() => navigate("/documentation")}
                 />
               </div>
             </div>
