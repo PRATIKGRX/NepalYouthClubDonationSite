@@ -80,7 +80,7 @@ const Home = () => {
                   className="w-full h-full aspect-[16/9]  md:hidden"
                 />
               </div>
-              <div className="text-center border flex justify-center">
+              <div className="text-center flex justify-center">
                 <Button
                   text={"View Full Documentation"}
                   className="text-[10px] px-8 py-5"
